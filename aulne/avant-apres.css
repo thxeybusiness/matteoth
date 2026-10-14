@@ -1,0 +1,44 @@
+/* SECTION AVANT / APRÈS — fournie par Thomas telle quelle (« section-avant-
+ * apres.html »), isolée sous .aulne-ba. Seule retouche : les polices ne
+ * viennent plus de Google Fonts mais du site (aulne.css les déclare), pour
+ * ne transmettre l'adresse du visiteur à aucun tiers.
+ */
+.aulne-ba{--creme:#F4EEE3;--sable:#C9B694;--marine:#1C2D4A;--bleu:#3E5C8A;--indigo:#2C4468;--nuit:#111C30;
+  position:relative;isolation:isolate;overflow:hidden;color:var(--creme);font:700 16px/1.5 'Figtree','Helvetica Neue',Arial,sans-serif;
+  background:radial-gradient(120% 90% at 50% 120%,var(--indigo),transparent 60%),linear-gradient(180deg,var(--nuit),var(--marine) 55%,var(--indigo));
+  padding:clamp(48px,7vw,96px) 0}
+.aulne-ba *{box-sizing:border-box}
+.aulne-ba img{max-width:100%;display:block}
+.aulne-ba .ba-sky{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aulne-ba .ba-blob{position:absolute;border-radius:50%;filter:blur(90px)}
+.aulne-ba .b1{width:900px;height:900px;left:-300px;top:-380px;background:radial-gradient(circle,rgba(62,92,138,.95),transparent 65%);animation:aulneBa1 22s ease-in-out infinite alternate}
+.aulne-ba .b2{width:720px;height:720px;right:-240px;top:60px;background:radial-gradient(circle,rgba(201,182,148,.55),transparent 65%);animation:aulneBa2 26s ease-in-out infinite alternate}
+.aulne-ba .b3{width:820px;height:600px;left:25%;bottom:-360px;background:radial-gradient(circle,rgba(244,238,227,.22),transparent 65%);animation:aulneBa3 30s ease-in-out infinite alternate}
+@keyframes aulneBa1{to{transform:translate(160px,120px) scale(1.1)}}
+@keyframes aulneBa2{to{transform:translate(-180px,100px) scale(.9)}}
+@keyframes aulneBa3{to{transform:translate(-140px,-140px) scale(1.15)}}
+.aulne-ba .ba-grain{position:absolute;inset:-50%;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.aulne-ba .ba-wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)}
+.aulne-ba .ba-hero{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px}
+.aulne-ba .ba-title{margin:0;font:900 clamp(56px,13vw,170px)/.82 'Unbounded','Arial Black',sans-serif;letter-spacing:-.06em;text-transform:uppercase;
+  background:linear-gradient(100deg,var(--creme) 30%,var(--sable) 60%,var(--creme) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:aulneBaSheen 7s ease-in-out infinite}
+@keyframes aulneBaSheen{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+.aulne-ba .ba-sub{margin:0;font:800 clamp(18px,2.4vw,28px)/1.1 'Unbounded','Arial Black',sans-serif;text-transform:uppercase;color:var(--sable);text-align:right}
+.aulne-ba .ba-sub small{display:block;font:700 13px 'Figtree',Arial,sans-serif;letter-spacing:.04em;color:rgba(244,238,227,.7);margin-bottom:10px}
+.aulne-ba .ba-frame{border-radius:30px;padding:10px;background:linear-gradient(140deg,rgba(244,238,227,.35),rgba(244,238,227,.04) 40%,rgba(201,182,148,.35));box-shadow:0 50px 120px -40px rgba(0,0,0,.7),0 0 120px -30px rgba(201,182,148,.35)}
+.aulne-ba .ba-compare{--pos:50%;position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0b0b10;touch-action:pan-y;user-select:none}
+@media (max-width:640px){.aulne-ba .ba-compare{aspect-ratio:4/3}}
+.aulne-ba .ba-compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.aulne-ba .ba-compare img.ba-after{clip-path:inset(0 0 0 var(--pos))}
+.aulne-ba .ba-shine{position:absolute;top:0;bottom:0;left:var(--pos);width:280px;margin-left:-140px;background:radial-gradient(closest-side,rgba(244,238,227,.25),transparent);pointer-events:none;mix-blend-mode:screen}
+.aulne-ba .ba-line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;margin-left:-1.5px;background:linear-gradient(180deg,transparent,var(--creme) 12%,var(--creme) 88%,transparent);box-shadow:0 0 22px 2px rgba(244,238,227,.75);pointer-events:none}
+.aulne-ba .ba-handle{position:absolute;top:50%;left:var(--pos);width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--creme);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(244,238,227,.15),0 0 50px rgba(244,238,227,.5);pointer-events:none}
+.aulne-ba .ba-handle svg{width:28px;height:28px}
+.aulne-ba .ba-compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;z-index:5;-webkit-appearance:none;appearance:none}
+.aulne-ba .ba-compare input:focus-visible ~ .ba-handle{outline:3px solid var(--sable);outline-offset:4px}
+.aulne-ba .ba-tag{position:absolute;top:18px;z-index:4;font:800 12px 'Unbounded','Arial Black',sans-serif;letter-spacing:.02em;text-transform:uppercase;padding:11px 18px;border-radius:999px;pointer-events:none;color:var(--marine);transition:opacity .25s}
+.aulne-ba .ba-t-before{left:18px;background:rgba(244,238,227,.92)}
+.aulne-ba .ba-t-after{right:18px;background:var(--sable)}
+.aulne-ba .ba-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.aulne-ba .ba-chips li{font:800 12px 'Unbounded','Arial Black',sans-serif;letter-spacing:.02em;text-transform:uppercase;padding:13px 18px;border-radius:999px;background:rgba(244,238,227,.1);border:1px solid rgba(244,238,227,.22);backdrop-filter:blur(10px)}
+@media (prefers-reduced-motion:reduce){.aulne-ba .ba-blob,.aulne-ba .ba-title{animation:none}}

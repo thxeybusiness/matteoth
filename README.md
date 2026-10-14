@@ -12,7 +12,8 @@ aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
                     de la plateforme de marque d'Aulne, DANS LA CHARTE D'AULNE
 aulne/aulne.css     la charte d'Aulne : Crème, Marine, Bleu ; Unbounded, Figtree
 aulne/fonts/        Unbounded et Figtree, servies par le site
-aulne/assets/       le motif des cernes, tiré du livre de marque
+aulne/avant-apres.* la section avant/après fournie par Thomas (Nero), hors
+                    ligne tant que ses deux images manquent dans aulne/assets/
 assets/site.css     la feuille commune à l'accueil et à /mrr
 assets/fonts.css    General Sans et Satoshi, servies par le site
 assets/profil.jpg   la photo de profil de l'accueil
