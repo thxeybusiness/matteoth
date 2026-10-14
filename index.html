@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Le zoom reste AUTORISÉ : couper le pincement prive de la page ceux
+       qui en ont besoin pour la lire. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- [À COMPLÉTER] Titre et description : à réécrire avec ce que fait
+       Matteo. Ce sont eux qu'affichent Google et l'aperçu de lien. -->
+  <title>Matteo — Bientôt plus</title>
+  <meta name="description" content="Le site de Matteo." />
+  <link rel="canonical" href="https://matteoth.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matteoth.com/" />
+  <meta property="og:site_name" content="Matteo" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:title" content="Matteo" />
+  <meta property="og:description" content="Le site de Matteo." />
+
+  <!-- Un SVG suffit tant que la marque est un monogramme. Le jour où elle
+       devient une photo, passer aux PNG comme sur simonbsns : un SVG ne
+       porte une photo qu'en base64, plus lourd que le PNG. -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <meta name="theme-color" content="#02030a" />
+
+  <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
+       n'est pas décoratif : sans lui le préchargement est refait. -->
+  <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/fonts.css" />
+
+  <!-- Le masquage des sections à l'arrivée n'existe QUE si JavaScript tourne,
+       puisque c'est lui qui les redonne. Sans cette classe, une page dont le
+       script n'a pas tourné se rendrait vide sous le titre. -->
+  <script>document.documentElement.classList.add("js");</script>
+
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+
+<body>
+  <div class="ambiance" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- ===================== ACCROCHE ===================== -->
+    <header>
+      <!-- [À COMPLÉTER] Remplacer par la photo de profil :
+           <img src="/assets/profil.jpg" alt="Matteo" class="logo reveal d1" width="48" height="48" /> -->
+      <span class="monogramme reveal d1" aria-hidden="true">M</span>
+      <div class="identite reveal d2">
+        <span class="badge">Matteo &middot; TH</span>
+      </div>
+    </header>
+
+    <section class="hero" style="margin-top:46px">
+      <!-- [À COMPLÉTER] L'accroche : une phrase sur ce que Matteo apporte,
+           et à qui. Celle-ci tient la place sans rien promettre. -->
+      <h1 class="reveal d3">
+        Le site arrive.
+        <span class="accent">Le contenu aussi.</span>
+      </h1>
+      <p class="subtitle reveal d4">
+        Cette page se remplit dans les prochains jours. En attendant, tu peux
+        me contacter directement.
+      </p>
+
+      <div class="envoi reveal d5 centree" style="margin-top:38px">
+        <a href="#contact" class="cta" data-scroll>
+          Me contacter
+          <span class="fleche" aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="#propose" class="cta-sobre" data-scroll>En savoir plus</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== CE QUE JE PROPOSE =====================
+       [À COMPLÉTER] Deux cartes, deux publics — la mise en page vient de
+       simonbsns. Les titres et textes ci-dessous sont des emplacements :
+       ils ne disent rien qui engage tant qu'on ne sait pas ce que propose
+       Matteo. Une carte de plus : retirer la classe « deux ». -->
+  <section class="bande" id="propose">
+    <span class="eyebrow fade-up">Ce que je propose</span>
+    <h2 class="section-title fade-up">Deux façons de travailler ensemble</h2>
+
+    <div class="cartes deux">
+      <article class="carte fade-up">
+        <span class="carte-haut"><span class="medaille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></span><span class="carte-num">TU DÉMARRES</span></span>
+        <h3>Trouver par où commencer</h3>
+        <p>On part de ta situation, pas d'un modèle tout fait.</p>
+      </article>
+
+      <article class="carte fade-up">
+        <span class="carte-haut"><span class="medaille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="carte-num">TU ES DÉJÀ LANCÉ</span></span>
+        <h3>Aller plus loin</h3>
+        <p>On regarde ce qui marche déjà, et ce qui bloque.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== LA MÉTHODE ===================== -->
+  <section class="bande" id="methode">
+    <span class="eyebrow fade-up">La méthode</span>
+    <h2 class="section-title fade-up">Comment je travaille</h2>
+
+    <div class="cartes">
+      <article class="carte fade-up">
+        <span class="carte-haut"><span class="medaille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></span><span class="carte-num">01</span></span>
+        <h3>Tu me dis où tu en es</h3>
+        <p>Un premier message, quelques questions, et on voit si je peux t'aider.</p>
+      </article>
+
+      <article class="carte fade-up">
+        <span class="carte-haut"><span class="medaille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="m9.5 14.5 2 2 3.5-4"/></svg></span><span class="carte-num">02</span></span>
+        <h3>On fixe un cap</h3>
+        <p>Un objectif clair et la première étape pour l'atteindre.</p>
+      </article>
+
+      <article class="carte fade-up">
+        <span class="carte-haut"><span class="medaille" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5V5h3"/></svg></span><span class="carte-num">03</span></span>
+        <h3>Une étape à la fois</h3>
+        <p>On ne passe à la suite que si la précédente tient.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== QUESTIONS =====================
+       Des réponses qui ne parlent que du fonctionnement, jamais d'un
+       résultat ni d'un délai : rien d'inventé ne part en ligne.
+       [À COMPLÉTER] Ajouter les vraies questions que posent les gens. -->
+  <section class="bande">
+    <span class="eyebrow fade-up">Questions</span>
+    <h2 class="section-title fade-up">Ce qu'on me demande le plus</h2>
+
+    <div class="faq">
+      <details class="fade-up">
+        <summary>Je peux te parler avant de commencer&nbsp;?</summary>
+        <p>C'est l'ordre normal. Écris-moi, et si ce n'est pas le moment pour toi, je te le dis.</p>
+      </details>
+
+      <details class="fade-up">
+        <summary>C'est compatible avec des études ou un travail&nbsp;?</summary>
+        <p>On part de ton temps disponible, pas de celui que tu n'as pas.</p>
+      </details>
+
+      <details class="fade-up">
+        <summary>Il faut de l'expérience&nbsp;?</summary>
+        <p>Non. On part d'où tu en es.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT =====================
+       [À COMPLÉTER] Aucun lien de contact n'est en ligne : un lien faux est
+       pire qu'un lien absent — il se clique, et il tombe à côté. Donner
+       l'Instagram (ou autre), remplacer l'adresse, retirer les marqueurs. -->
+  <section class="bande" id="contact">
+    <span class="eyebrow fade-up">On se parle</span>
+    <h2 class="section-title fade-up">Comment me joindre</h2>
+    <p class="section-sub fade-up">
+      Les liens de contact arrivent très bientôt sur cette page.
+    </p>
+
+    <!--
+    <div class="portes">
+      <a class="porte fade-up" href="https://www.instagram.com/COMPTE" target="_blank" rel="noopener">
+        <em>En DM</em>
+        <strong>@COMPTE sur Instagram</strong>
+        <span>Je réponds à tout, y compris pour dire non.</span>
+      </a>
+    </div>
+    -->
+  </section>
+
+  <!-- ===================== DERNIER APPEL ===================== -->
+  <section class="bande cloture">
+    <h2 class="section-title fade-up">
+      Le plus dur, c'est de commencer par le bon bout.
+    </h2>
+    <div class="envoi fade-up centree" style="margin-top:30px">
+      <a href="#contact" class="cta" data-scroll>
+        Me contacter
+        <span class="fleche" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="monogramme" aria-hidden="true">M</span>
+      <!-- [À COMPLÉTER] Lien vers /mentions dès que l'éditeur est connu :
+           la loi (LCEN) l'exige pour un site commercial.
+      <nav class="footer-liens" aria-label="Pied de page"><a href="/mentions">Mentions légales</a></nav>
+      -->
+    </div>
+  </footer>
+
+  <script>
+    // Défilement doux vers l'ancre, sauf si le système demande moins de
+    // mouvement : un saut instantané reste une navigation réussie.
+    document.querySelectorAll("[data-scroll]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        var cible = document.querySelector(this.getAttribute("href"));
+        if (!cible) return;
+        e.preventDefault();
+        var sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        cible.scrollIntoView({ behavior: sobre ? "auto" : "smooth", block: "start" });
+      });
+    });
+  </script>
+
+  <script>
+    // Apparition au défilement. Le repli n'est pas « pas d'animation » mais
+    // « tout visible » : sans IntersectionObserver, des éléments laissés à
+    // opacity 0 rendraient une page vide, ce qui est pire que sans effet.
+    (function () {
+      var els = document.querySelectorAll(".fade-up");
+      if (!els.length) return;
+      var sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (sobre || !("IntersectionObserver" in window)) {
+        els.forEach(function (el) { el.classList.add("is-in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entrees) {
+        entrees.forEach(function (entree) {
+          if (!entree.isIntersecting) return;
+          var i = Array.prototype.indexOf.call(entree.target.parentElement.children, entree.target);
+          entree.target.style.transitionDelay = Math.min(i, 5) * 90 + "ms";
+          entree.target.classList.add("is-in");
+          io.unobserve(entree.target);
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

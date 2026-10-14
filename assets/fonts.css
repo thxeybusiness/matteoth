@@ -1,0 +1,43 @@
+/* Polices servies par le site lui-même, et non par le CDN de l'éditeur.
+   Deux raisons, dans cet ordre. La page annonce dans ses mentions qu'elle ne
+   dépose rien et n'appelle personne : un appel à un CDN de polices transmet
+   malgré tout l'adresse IP du visiteur à un tiers, et contredit la phrase.
+   Et une page de vente qui attend un tiers pour afficher son titre perd son
+   titre exactement quand le tiers est lent.
+
+   Refaire ce fichier après un changement de graisse :
+   voir le README, section « Les polices ».
+   Fontshare (Indian Type Foundry) — licence libre d'usage commercial,
+   hébergement par ses propres moyens autorisé. */
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/general-sans-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/general-sans-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/satoshi-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
