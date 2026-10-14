@@ -28,7 +28,7 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=8" />
+  <link rel="stylesheet" href="/assets/site.css?v=9" />
 </head>
 
 <body>
@@ -63,103 +63,41 @@
     </main>
   </div>
 
-  <!-- LE BUSINESS — le MRR, avec les mots de Matteo, découpés en trois
-       étapes et deux faits. Rien d'ajouté : ni chiffre, ni promesse de gain.
-       Les visuels sont décoratifs (aria-hidden) : le texte dit tout.
-       Les objets (tuile, pièces, sphères) et le fond qui réagit sont
-       décrits en tête de leur bloc dans assets/site.css. -->
-  <div class="zone-business">
-    <div class="orbe a" aria-hidden="true"></div>
-    <div class="orbe b" aria-hidden="true"></div>
-    <div class="orbe c" aria-hidden="true"></div>
+  <!-- LE BUSINESS — le MRR, avec les mots de Matteo. Volontairement
+       simple : deux versions illustrées (au trait, puis en relief avec une
+       scène animée) ont été jugées chargées. Trois étapes, une ligne de
+       faits, un bouton. Rien d'ajouté : ni chiffre, ni promesse de gain. -->
+  <section class="business" id="business">
+    <span class="surtitre">Le business</span>
+    <h2 class="titre">Le MRR</h2>
+    <p class="accroche">Un produit numérique, acheté une fois, revendu autant de fois que tu veux.</p>
 
-    <section class="business" id="business">
-      <span class="surtitre">Le business</span>
-      <h2 class="titre">Le MRR</h2>
-      <p class="accroche">Un produit numérique, acheté une fois, revendu autant de fois que tu veux.</p>
+    <ol class="etapes">
+      <li class="etape">
+        <span class="num">1</span>
+        <h3>Tu achètes une fois</h3>
+        <p>Un produit numérique, avec le droit de le revendre autant de fois que tu veux.</p>
+      </li>
+      <li class="etape">
+        <span class="num">2</span>
+        <h3>Tu revends, tu gardes tout</h3>
+        <p>Chaque fois que tu le revends, tu gardes l'argent de la vente.</p>
+      </li>
+      <li class="etape">
+        <span class="num">3</span>
+        <h3>Ton acheteur revend à son tour</h3>
+        <p>Il reçoit le même droit : il peut le revendre lui aussi.</p>
+      </li>
+    </ol>
 
-      <!-- Au centre le produit, autour l'argent des ventes, puis les
-           acheteurs, et au loin ceux à qui ils revendent. -->
-      <div class="scene" aria-hidden="true"><div class="projecteur"></div><div class="sol"></div><div class="plan tres-loin" style="--x:4%;--y:14%;--p:0.3"><div class="flotte" style="--f:9s"><div class="sphere " style="--s:34px"></div></div></div><div class="plan tres-loin" style="--x:96%;--y:12%;--p:0.3"><div class="flotte" style="--f:8s"><div class="sphere " style="--s:30px"></div></div></div><div class="plan tres-loin" style="--x:5%;--y:88%;--p:0.3"><div class="flotte" style="--f:10s"><div class="sphere " style="--s:30px"></div></div></div><div class="plan tres-loin" style="--x:95%;--y:90%;--p:0.3"><div class="flotte" style="--f:9s"><div class="sphere " style="--s:34px"></div></div></div><div class="plan tres-loin" style="--x:45%;--y:6%;--p:0.4"><div class="flotte" style="--f:7s"><div class="piece" style="--d:22px">€</div></div></div><div class="plan " style="--x:14%;--y:44%;--p:0.9"><div class="flotte" style="--f:6.5s"><div class="sphere " style="--s:62px"></div></div></div><div class="plan " style="--x:86%;--y:40%;--p:0.9"><div class="flotte" style="--f:7.2s"><div class="sphere " style="--s:58px"></div></div></div><div class="plan loin" style="--x:26%;--y:84%;--p:0.8"><div class="flotte" style="--f:6.8s"><div class="sphere " style="--s:46px"></div></div></div><div class="plan loin" style="--x:82%;--y:82%;--p:0.8"><div class="flotte" style="--f:7.6s"><div class="sphere " style="--s:44px"></div></div></div><div class="plan " style="--x:64%;--y:16%;--p:1.9"><div class="flotte" style="--f:5.2s"><div class="piece" style="--d:48px">€</div></div></div><div class="plan " style="--x:34%;--y:18%;--p:1.6"><div class="flotte" style="--f:5.8s"><div class="piece" style="--d:38px">€</div></div></div><div class="plan " style="--x:62%;--y:84%;--p:2.1"><div class="flotte" style="--f:4.8s"><div class="piece" style="--d:42px">€</div></div></div><div class="plan" style="--x:50%;--y:46%;--p:1.2"><div class="flotte" style="--f:7s"><div class="incline"><div class="tuile centre-tuile" style="--t:clamp(104px, 15vw, 150px)"><svg class="lecture" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></svg><span class="infini">∞</span></div></div></div></div></div>
+    <p class="en-ligne">
+      Tout est en ligne : pas de stock, pas de colis, pas de livraison.<br />
+      Le travail, c'est trouver des acheteurs : du contenu sur les réseaux et des messages privés.
+    </p>
 
-      <div class="etapes">
-        <article class="etape">
-          <div class="visuel" aria-hidden="true"><div class="plan " style="--x:50%;--y:54%;--p:0.6"><div class="flotte" style="--f:6s"><div class="tuile " style="--t:84px"><svg class="lecture" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></svg><span class="infini">∞</span></div></div></div></div>
-          <span class="num">01</span>
-          <h3>Tu achètes une fois</h3>
-          <p>Un produit numérique, avec le droit de le revendre autant de fois que tu veux.</p>
-        </article>
-        <article class="etape">
-          <div class="visuel" aria-hidden="true"><div class="plan " style="--x:22%;--y:58%;--p:0.6"><div class="flotte" style="--f:6.4s"><div class="sphere toi" style="--s:58px"></div></div></div><div class="plan " style="--x:56%;--y:30%;--p:1"><div class="flotte" style="--f:4.6s"><div class="piece" style="--d:40px">€</div></div></div><div class="plan " style="--x:74%;--y:64%;--p:1.2"><div class="flotte" style="--f:5.2s"><div class="piece" style="--d:36px">€</div></div></div><div class="plan loin" style="--x:90%;--y:30%;--p:0.8"><div class="flotte" style="--f:5.8s"><div class="piece" style="--d:28px">€</div></div></div></div>
-          <span class="num">02</span>
-          <h3>Tu revends, tu gardes tout</h3>
-          <p>Chaque fois que tu le revends, tu gardes l'argent de la vente.</p>
-        </article>
-        <article class="etape">
-          <div class="visuel" aria-hidden="true"><div class="plan " style="--x:12%;--y:62%;--p:0.5"><div class="flotte" style="--f:6.6s"><div class="sphere " style="--s:52px"></div></div></div><div class="plan " style="--x:31%;--y:38%;--p:0.8"><div class="flotte" style="--f:5s"><div class="tuile " style="--t:34px"><svg class="lecture" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></svg></div></div></div><div class="plan " style="--x:50%;--y:62%;--p:0.5"><div class="flotte" style="--f:6.2s"><div class="sphere " style="--s:44px"></div></div></div><div class="plan loin" style="--x:68%;--y:38%;--p:0.8"><div class="flotte" style="--f:5.4s"><div class="tuile " style="--t:28px"><svg class="lecture" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="#fff"/></svg></div></div></div><div class="plan loin" style="--x:86%;--y:62%;--p:0.5"><div class="flotte" style="--f:6.8s"><div class="sphere " style="--s:38px"></div></div></div></div>
-          <span class="num">03</span>
-          <h3>Ton acheteur revend à son tour</h3>
-          <p>Il reçoit le même droit : il peut le revendre lui aussi.</p>
-        </article>
-      </div>
-
-      <div class="faits">
-        <div class="fait">
-          <h3>Tout est en ligne</h3>
-          <ul class="pastilles">
-            <li><span class="ico"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.6" fill="none" stroke="#0b1a55" stroke-width="2.4"/><path d="M4.2 11.8 L11.8 4.2" stroke="#0b1a55" stroke-width="2.4" stroke-linecap="round"/></svg></span>Pas de stock</li>
-            <li><span class="ico"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.6" fill="none" stroke="#0b1a55" stroke-width="2.4"/><path d="M4.2 11.8 L11.8 4.2" stroke="#0b1a55" stroke-width="2.4" stroke-linecap="round"/></svg></span>Pas de colis</li>
-            <li><span class="ico"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.6" fill="none" stroke="#0b1a55" stroke-width="2.4"/><path d="M4.2 11.8 L11.8 4.2" stroke="#0b1a55" stroke-width="2.4" stroke-linecap="round"/></svg></span>Pas de livraison</li>
-          </ul>
-        </div>
-        <div class="fait">
-          <h3>Le travail : trouver des acheteurs</h3>
-          <ul class="pastilles">
-            <li><span class="ico"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="3" fill="#0b1a55"/><path d="M6.5 5.5 L11 8 L6.5 10.5 Z" fill="#e4ebff"/></svg></span>Du contenu sur les réseaux</li>
-            <li><span class="ico"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 2.5 h11 a1.5 1.5 0 0 1 1.5 1.5 v6.5 a1.5 1.5 0 0 1 -1.5 1.5 h-6 l-3.5 3 v-3 h-1.5 a1.5 1.5 0 0 1 -1.5 -1.5 v-6.5 a1.5 1.5 0 0 1 1.5 -1.5 z" fill="#0b1a55"/></svg></span>Des messages privés</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="suite"><a class="acheter" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a></div>
-    </section>
-  </div>
+    <div class="suite"><a class="acheter" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a></div>
+  </section>
 
   <p class="fin">matteoth.com</p>
-  <script>
-    // LE FOND JOUE AVEC LES ÉLÉMENTS : la zone « Le business » reçoit la
-    // position de la souris (--mx, --my, de -0,5 à 0,5) et celle du
-    // défilement (--sy, de 0 à 1). Le CSS en fait la parallaxe des halos,
-    // des objets et l'inclinaison de la tuile. Une seule écriture par image
-    // (requestAnimationFrame) ; rien du tout si le système demande moins
-    // de mouvement. La souris seulement sur un pointeur fin : au doigt,
-    // c'est le défilement qui fait bouger la scène.
-    (function () {
-      var zone = document.querySelector(".zone-business");
-      if (!zone || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      var mx = 0, my = 0, attente = 0;
-      function poser() {
-        attente = 0;
-        var r = zone.getBoundingClientRect();
-        var sy = (innerHeight - r.top) / (innerHeight + r.height);
-        zone.style.setProperty("--mx", mx.toFixed(3));
-        zone.style.setProperty("--my", my.toFixed(3));
-        zone.style.setProperty("--sy", Math.max(0, Math.min(1, sy)).toFixed(3));
-      }
-      function demander() { if (!attente) attente = requestAnimationFrame(poser); }
-      if (window.matchMedia("(pointer: fine)").matches) {
-        zone.addEventListener("pointermove", function (e) {
-          var r = zone.getBoundingClientRect();
-          mx = (e.clientX - r.left) / r.width - 0.5;
-          my = (e.clientY - r.top) / r.height - 0.5;
-          demander();
-        });
-        zone.addEventListener("pointerleave", function () { mx = 0; my = 0; demander(); });
-      }
-      addEventListener("scroll", demander, { passive: true });
-      addEventListener("resize", demander);
-      demander();
-    })();
-  </script>
 </body>
 </html>
