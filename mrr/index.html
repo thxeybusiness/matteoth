@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Le zoom reste AUTORISÉ : couper le pincement prive de la page ceux
+       qui en ont besoin pour la lire. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>MRR — Matteo</title>
+  <meta name="description" content="La page MRR arrive." />
+  <link rel="canonical" href="https://matteoth.com/mrr" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matteoth.com/mrr" />
+  <meta property="og:title" content="MRR — Matteo" />
+  <meta property="og:description" content="La page MRR arrive." />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=3" />
+  <!-- Safari demande /apple-touch-icon.png à la racine sans lire ce HTML :
+       le fichier ne peut pas déménager. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
+  <meta name="theme-color" content="#02030a" />
+
+  <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
+       n'est pas décoratif : sans lui le préchargement est refait. -->
+  <link rel="preload" href="/assets/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="stylesheet" href="/assets/site.css?v=1" />
+</head>
+
+<body class="plein">
+  <div class="lueur" aria-hidden="true"></div>
+  <div class="horizon" aria-hidden="true"></div>
+  <div class="filet" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- La même barre sur les trois pages ; aria-current marque la page
+       ouverte, pour l'œil comme pour le lecteur d'écran. -->
+  <nav class="barre" aria-label="Navigation">
+    <a href="/">Accueil</a>
+    <a href="/mrr" aria-current="page">MRR</a>
+    <a href="/aulne">Aulne</a>
+  </nav>
+
+  <!-- [À COMPLÉTER] Le contenu MRR de Matteo : offres, prix, liens d'achat.
+       Rien d'inventé ne part en ligne — la page reste en attente d'ici là. -->
+  <main class="centre">
+    <h1 class="annonce">La page MRR arrive<span class="point">.</span></h1>
+  </main>
+
+  <p class="pied">matteoth.com</p>
+</body>
+</html>

@@ -11,12 +11,11 @@
   <link rel="canonical" href="https://matteoth.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matteoth.com/" />
-  <meta property="og:title" content="Le site arrive" />
+  <meta property="og:title" content="Matteo — Le site arrive" />
+  <meta property="og:description" content="Le site arrive." />
   <meta property="og:locale" content="fr_FR" />
 
-  <!-- Des PNG et non plus le SVG du monogramme : la marque est une photo, et
-       un SVG ne la porterait qu'en base64, plus lourd que le PNG. Tous
-       dérivés d'une seule source par scripts/marque.py. -->
+  <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=3" />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=3" />
   <!-- Safari demande /apple-touch-icon.png à la racine sans lire ce HTML :
@@ -24,125 +23,30 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
   <meta name="theme-color" content="#02030a" />
 
-  <!-- Une seule graisse sert : on ne précharge qu'elle. Le crossorigin
-       n'est pas décoratif, sans lui le préchargement est refait. -->
+  <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
+       n'est pas décoratif : sans lui le préchargement est refait. -->
   <link rel="preload" href="/assets/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-
-  <!-- Le style tient dans la page : une feuille à part coûterait une requête
-       de plus pour une page qui n'a qu'une ligne à montrer. -->
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #02030a;          /* noir à peine bleuté, contre le banding */
-      --ink: #f5f7ff;         /* 19,9:1 */
-      --ink-faint: #757d95;   /*  5,0:1 */
-      --bleu-nuit: #0d1e4d;   /* le bleu de la marque : aplats seulement,
-                                 il pèse 1,28:1 sur le fond */
-      --bleu-vif: #224cc9;    /* la lumière */
-      --bleu-clair: #7390e7;  /*  6,7:1 */
-    }
-
-    html, body { height: 100%; }
-    body {
-      /* svh et non vh : sur téléphone, vh compte la barre d'adresse et la
-         ligne passerait sous le pli, décentrée. */
-      min-height: 100svh;
-      display: grid; place-items: center;
-      padding: 24px;
-      background-color: var(--bg);
-      color: var(--ink);
-      font-family: "General Sans", system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* UN horizon de lumière bleue qui monte du bas, au lieu des deux cônes
-       de simonbsns : même gamme, autre geste. Couches fixes et non
-       background-attachment, qu'iOS Safari ignore. */
-    .horizon, .filet {
-      position: fixed; left: 50%; transform: translateX(-50%);
-      width: 160vmax; height: 160vmax; border-radius: 50%;
-      top: calc(100svh - 26vh);
-      pointer-events: none;
-    }
-    /* Ni box-shadow ni filter ici : sur un élément de cette taille, le
-       téléphone découpe l'ombre en tuiles et laisse une arête droite en
-       travers de l'écran. Tout est dans des dégradés, qui ne se découpent pas. */
-    .horizon {
-      background: radial-gradient(closest-side, var(--bg) 90%, rgba(22, 49, 131, 0.6) 98%, rgba(34, 76, 201, 0.75) 100%);
-    }
-    /* La lueur au-dessus de l'horizon : une couche plein écran à part. */
-    .lueur {
-      position: fixed; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 90% 45% at 50% 100%, rgba(34, 76, 201, 0.5), rgba(13, 30, 77, 0.3) 55%, transparent 80%);
-    }
-
-    /* Le filet qui borde l'horizon, à part et SANS flou : c'est lui qui
-       donne la courbure, le halo seul se lirait comme une tache. */
-    .filet { border-top: 1px solid rgba(176, 193, 242, 0.7); }
-
-    /* Grain : sans lui, le dégradé se découpe en paliers. */
-    .grain {
-      position: fixed; inset: 0; pointer-events: none;
-      opacity: 0.05; mix-blend-mode: overlay;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    /* La photo et la ligne forment un bloc centré : séparées, la grille du
-       body les centrerait chacune dans une moitié de l'écran. */
-    .centre { position: relative; display: flex; flex-direction: column; align-items: center; gap: 28px; }
-
-    .profil {
-      width: clamp(88px, 22vw, 120px); height: auto; aspect-ratio: 1;
-      border-radius: 50%; object-fit: cover;
-      /* Le liseré et la lueur reprennent l'horizon : la photo appartient à
-         la même lumière que le bas de la page. */
-      border: 1px solid rgba(176, 193, 242, 0.45);
-      box-shadow: 0 0 0 6px rgba(13, 30, 77, 0.55), 0 12px 48px rgba(34, 76, 201, 0.5);
-      animation: monte 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
-
-    h1 {
-      position: relative;
-      font-weight: 600;
-      font-size: clamp(2rem, 7vw, 4.5rem);
-      letter-spacing: -0.03em; line-height: 1.1;
-      text-align: center;
-      animation: monte 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
-    }
-    /* Le point bat doucement : seul signe que la page est « en cours ».
-       Il est en bleu clair et non en bleu nuit, illisible sur ce fond. */
-    h1 span { color: var(--bleu-clair); animation: bat 2.4s ease-in-out infinite; }
-
-    .pied {
-      position: fixed; left: 0; right: 0;
-      bottom: max(20px, env(safe-area-inset-bottom));
-      text-align: center;
-      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-
-    @keyframes monte { from { opacity: 0; transform: translateY(12px); } }
-    @keyframes bat { 50% { opacity: 0.25; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      .profil, h1, h1 span { animation: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/site.css?v=1" />
 </head>
 
-<body>
+<body class="plein">
   <div class="lueur" aria-hidden="true"></div>
   <div class="horizon" aria-hidden="true"></div>
   <div class="filet" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
+  <!-- La même barre sur les trois pages ; aria-current marque la page
+       ouverte, pour l'œil comme pour le lecteur d'écran. -->
+  <nav class="barre" aria-label="Navigation">
+    <a href="/" aria-current="page">Accueil</a>
+    <a href="/mrr">MRR</a>
+    <a href="/aulne">Aulne</a>
+  </nav>
+
   <main class="centre">
     <img src="/assets/profil.jpg?v=3" alt="Matteo" class="profil" width="120" height="120" />
-    <h1>Le site arrive<span>.</span></h1>
+    <h1 class="annonce">Le site arrive<span class="point">.</span></h1>
   </main>
 
   <p class="pied">matteoth.com</p>

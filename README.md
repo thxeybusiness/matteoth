@@ -6,7 +6,11 @@ les fichiers du dépôt sont ce que le navigateur reçoit. Gamme bleu et noir
 reprise de simonbsns.com.
 
 ```
-index.html          la page d'attente « Le site arrive. » (style inclus)
+index.html          l'accueil : la photo et « Le site arrive. »
+mrr/index.html      LE MRR : en attente du contenu (« La page MRR arrive. »)
+aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
+                    de la plateforme de marque d'Aulne
+assets/site.css     la feuille COMMUNE aux trois pages
 assets/fonts.css    General Sans et Satoshi, servies par le site
 assets/profil.jpg   la photo de profil de l'accueil
 assets/favicon-*.png  favicons ronds (32, 192, 512)
@@ -17,8 +21,19 @@ scripts/marque.py   en dérive la photo (scène) et les favicons (visage serré)
 vercel.json         URL propres + en-têtes de sécurité et de cache
 ```
 
-Pour l'instant le site est **volontairement vide** (consigne du
-propriétaire) : la photo, une ligne, sur fond noir et horizon bleu.
+Trois pages, reliées par la même barre : **Accueil · MRR · Aulne**.
+
+- **Accueil** reste volontairement vide (consigne du propriétaire) : la photo
+  et une ligne.
+- **MRR** attend son contenu — offres, prix, liens d'achat. Rien d'inventé ne
+  part en ligne.
+- **Aulne** reprend la plateforme de marque d'Aulne : ce qu'est Aulne, pour
+  qui, les cinq offres, la différence, les valeurs, le nom. Ni prix ni
+  contact, que la plateforme ne fixe pas encore. Promesse et signature y
+  sont « à valider » : les changer ici aussi si elles bougent.
+
+En local, `/mrr` s'ouvre par `/mrr/` (pas de `cleanUrls` dans le serveur
+Python) ; en ligne les deux fonctionnent.
 
 ## La marque
 
