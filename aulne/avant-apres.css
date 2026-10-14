@@ -42,3 +42,38 @@
 .aulne-ba .ba-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
 .aulne-ba .ba-chips li{font:800 12px 'Unbounded','Arial Black',sans-serif;letter-spacing:.02em;text-transform:uppercase;padding:13px 18px;border-radius:999px;background:rgba(244,238,227,.1);border:1px solid rgba(244,238,227,.22);backdrop-filter:blur(10px)}
 @media (prefers-reduced-motion:reduce){.aulne-ba .ba-blob,.aulne-ba .ba-title{animation:none}}
+
+/* ============================================================
+   L'ENCART — la même section, en PETIT (consigne de Thomas : « en tout
+   petit, il est 100 fois trop gros »). Elle n'a plus son propre ciel : elle
+   vit dans le premier écran, sur le fond de la page. Seules les mesures
+   changent ; le curseur, le balayage et les étiquettes restent les siens.
+   ============================================================ */
+.aulne-ba.preuve {
+  background: none; padding: 0; overflow: visible; isolation: auto;
+  display: flex; align-items: center; justify-content: center; gap: 22px;
+  margin: 44px auto 0; text-align: left;
+}
+.preuve-titre {
+  font: 900 clamp(15px, 1.6vw, 19px)/1.05 'Unbounded', 'Arial Black', sans-serif;
+  letter-spacing: -0.04em; text-transform: uppercase; color: var(--creme);
+}
+.preuve-titre span { color: var(--sable); }
+.preuve-client { margin-top: 8px; font-size: 13px; letter-spacing: 0.02em; color: rgba(244, 238, 227, 0.7); }
+
+.aulne-ba.preuve .ba-frame { width: clamp(220px, 26vw, 300px); flex: none; border-radius: 16px; padding: 5px; box-shadow: 0 24px 60px -24px rgba(0,0,0,.7), 0 0 60px -20px rgba(201,182,148,.3); }
+.aulne-ba.preuve .ba-compare { aspect-ratio: 4 / 3; border-radius: 12px; }
+.aulne-ba.preuve .ba-shine { width: 120px; margin-left: -60px; }
+.aulne-ba.preuve .ba-line { width: 2px; margin-left: -1px; box-shadow: 0 0 12px 1px rgba(244,238,227,.7); }
+.aulne-ba.preuve .ba-handle { width: 30px; height: 30px; margin: -15px 0 0 -15px; box-shadow: 0 0 0 5px rgba(244,238,227,.15), 0 0 24px rgba(244,238,227,.5); }
+.aulne-ba.preuve .ba-handle svg { width: 15px; height: 15px; }
+.aulne-ba.preuve .ba-tag { top: 8px; font-size: 8px; padding: 5px 8px; }
+.aulne-ba.preuve .ba-t-before { left: 8px; }
+.aulne-ba.preuve .ba-t-after { right: 8px; }
+
+/* Au téléphone, la ligne passe au-dessus de l'image : côte à côte, les deux
+   tiendraient chacun sur la moitié de 320 px. */
+@media (max-width: 520px) {
+  .aulne-ba.preuve { flex-direction: column; gap: 14px; text-align: center; margin-top: 32px; }
+  .aulne-ba.preuve .ba-frame { width: min(260px, 100%); }
+}

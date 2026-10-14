@@ -26,8 +26,8 @@
        Variables, un fichier par famille couvre toutes les graisses. -->
   <link rel="preload" href="/aulne/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/aulne/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/aulne/aulne.css?v=2" />
-  <link rel="stylesheet" href="/aulne/avant-apres.css?v=1" />
+  <link rel="stylesheet" href="/aulne/aulne.css?v=3" />
+  <link rel="stylesheet" href="/aulne/avant-apres.css?v=2" />
 </head>
 
 <body>
@@ -69,22 +69,20 @@
       <li>Graphisme</li>
       <li>Pages de vente et sites</li>
     </ul>
-  </main>
 
-  <!-- AVANT / APRÈS · NERO — la section fournie par Thomas, telle quelle.
-       Pour un autre client : le nom, l'accroche, les pastilles et les deux
-       images dans aulne/assets/. -->
-  <section class="aulne-ba">
-    <div class="ba-sky" aria-hidden="true"><div class="ba-blob b1"></div><div class="ba-blob b2"></div><div class="ba-blob b3"></div><div class="ba-grain"></div></div>
-    <div class="ba-wrap">
-      <div class="ba-hero">
-        <h2 class="ba-title">Nero</h2>
-        <p class="ba-sub"><small>Identité visuelle</small>Du fluo<br>au net.</p>
+    <!-- AVANT / APRÈS — en PETIT, à la demande de Thomas : la section qu'il
+         a fournie (avant-apres.css et .js, curseur et balayage compris),
+         réduite à un encart sous les pastilles. À côté, une seule ligne de
+         preuve. Pour un autre client : le nom, le livrable, les deux images. -->
+    <div class="preuve aulne-ba">
+      <div class="preuve-texte">
+        <p class="preuve-titre">Nos clients,<br /><span>déjà satisfaits.</span></p>
+        <p class="preuve-client">Nero · Identité visuelle</p>
       </div>
       <div class="ba-frame">
         <div class="ba-compare">
-          <img class="ba-before" src="/aulne/assets/nero-avant.png" loading="lazy" alt="Ancien logo Nero en dégradé violet, rose et orange">
-          <img class="ba-after" src="/aulne/assets/nero-apres.png" loading="lazy" alt="Nouveau logo Nero, emblème blanc sur icône noire">
+          <img class="ba-before" src="/aulne/assets/nero-avant.png" alt="Ancien logo Nero en dégradé violet, rose et orange">
+          <img class="ba-after" src="/aulne/assets/nero-apres.png" alt="Nouveau logo Nero, emblème blanc sur icône noire">
           <div class="ba-shine"></div><div class="ba-line"></div>
           <span class="ba-tag ba-t-before">Avant</span>
           <span class="ba-tag ba-t-after">Après</span>
@@ -92,9 +90,9 @@
           <div class="ba-handle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1C2D4A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div>
         </div>
       </div>
-      <ul class="ba-chips"><li>Emblème</li><li>Logotype</li><li>Icône d'app</li><li>Palette</li></ul>
     </div>
-  </section>
+  </main>
+
   <script src="/aulne/avant-apres.js?v=1" defer></script>
 </body>
 </html>
