@@ -13,7 +13,7 @@ assets/favicon-*.png  favicons ronds (32, 192, 512)
 apple-touch-icon.png  icône d'écran d'accueil iOS — SERVIE À LA RACINE :
                       Safari la demande sans lire le HTML
 assets/_source-profil.png  la photo envoyée, source de TOUTE la marque
-scripts/marque.py   en dérive la photo et les favicons
+scripts/marque.py   en dérive la photo (scène) et les favicons (visage serré)
 vercel.json         URL propres + en-têtes de sécurité et de cache
 ```
 
