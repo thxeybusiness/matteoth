@@ -141,6 +141,109 @@ body.plein {
   color: var(--ink-faint);
 }
 
+/* ============================================================
+   PAGE QUI DÉFILE — MRR
+   ============================================================ */
+/* Sur une page qui défile, l'horizon fixe passerait SOUS les cartes à
+   chaque écran : la lumière vient alors d'en haut, et s'éteint en
+   descendant. */
+.lueur.haut {
+  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(34, 76, 201, 0.38), rgba(13, 30, 77, 0.22) 55%, transparent 80%);
+}
+
+.contenu { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+.ouverture { padding: 64px 0 8px; text-align: center; }
+.surtitre {
+  display: inline-block;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--bleu-clair);
+}
+.ouverture h1 {
+  margin-top: 16px;
+  font-family: "General Sans", sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 5.6vw, 3.6rem); letter-spacing: -0.03em; line-height: 1.08;
+  text-wrap: balance;
+  animation: monte 1.2s var(--ease) both;
+}
+.ouverture h1 em { font-style: normal; color: var(--bleu-pale); }
+.chapeau {
+  max-width: 560px; margin: 18px auto 0;
+  font-size: clamp(1rem, 1.8vw, 1.1rem); color: var(--ink-soft);
+  animation: monte 1.2s var(--ease) 0.15s both;
+}
+
+/* Trois formations côte à côte, l'une sous l'autre au téléphone — jamais
+   trois colonnes écrasées. */
+.formations {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
+  margin-top: 48px;
+  animation: monte 1.2s var(--ease) 0.3s both;
+}
+/* La carte N'EST PAS un lien : JDS et CLM ont deux destinations (une fois,
+   deux fois), et deux destinations ne tiennent pas dans un lien. Le bouton
+   principal prend toute la largeur : la cible reste large au pouce. */
+.formation {
+  display: flex; flex-direction: column;
+  padding: 26px 24px 24px; border-radius: 20px;
+  background: linear-gradient(180deg, rgba(13, 30, 77, 0.5), rgba(13, 30, 77, 0.18));
+  border: 1px solid rgba(115, 144, 231, 0.18);
+}
+.formation .budget {
+  align-self: flex-start;
+  padding: 6px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--bleu-pale); background: rgba(22, 49, 131, 0.45);
+  border: 1px solid rgba(115, 144, 231, 0.22);
+}
+.formation h2 {
+  margin-top: 18px;
+  font-family: "General Sans", sans-serif; font-weight: 700;
+  font-size: 2rem; letter-spacing: -0.02em; line-height: 1;
+}
+/* flex: 1 pousse le prix et les boutons en bas : une description d'une
+   ligne de plus ne décale pas le prix d'une carte par rapport aux autres. */
+.formation .quoi { flex: 1; margin-top: 12px; font-size: 0.97rem; color: var(--ink-soft); }
+
+.formation .prix {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(115, 144, 231, 0.16);
+  font-family: "General Sans", sans-serif; font-weight: 700;
+  font-size: 2.4rem; letter-spacing: -0.03em; line-height: 1;
+}
+.formation .prix small { font-family: "Satoshi", sans-serif; font-weight: 400; font-size: 0.9rem; letter-spacing: 0; color: var(--ink-faint); margin-left: 6px; }
+
+/* La rangée du paiement en deux fois existe sur TOUTES les cartes, même
+   celle qui n'en a pas : sans elle, le bouton de CFS remonterait de 44 px
+   par rapport aux deux autres. */
+.deux-fois { min-height: 44px; margin-top: 12px; display: flex; align-items: center; }
+.deux-fois a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
+  border-radius: 999px; text-decoration: none;
+  font-size: 0.9rem; color: var(--bleu-pale);
+  border: 1px solid rgba(115, 144, 231, 0.3);
+}
+.deux-fois a:hover { color: var(--ink); background: rgba(22, 49, 131, 0.35); }
+.deux-fois span { font-size: 0.9rem; color: var(--ink-faint); }
+
+.acheter {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; margin-top: 14px; padding: 14px 20px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 1rem;
+  color: #fff; text-decoration: none;
+  background: linear-gradient(180deg, var(--bleu), var(--bleu-nuit));
+  border: 1px solid rgba(115, 144, 231, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(34, 76, 201, 0.7);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.acheter:hover { transform: translateY(-1px); box-shadow: 0 14px 36px -10px rgba(34, 76, 201, 0.85); }
+
+.fin { padding: 96px 0 56px; text-align: center; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+
+@media (max-width: 860px) {
+  .formations { grid-template-columns: minmax(0, 1fr); max-width: 480px; margin-left: auto; margin-right: auto; }
+  .ouverture { padding-top: 48px; }
+}
+
 @media (max-width: 400px) {
   .barre { gap: 4px; }
   .barre a { padding: 10px 14px; font-size: 0.86rem; }
@@ -150,5 +253,6 @@ body.plein {
 @keyframes bat { 50% { opacity: 0.25; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .profil, .annonce, .annonce .point { animation: none; }
+  .profil, .annonce, .annonce .point, .ouverture h1, .chapeau, .formations { animation: none; }
+  .acheter { transition: none; }
 }

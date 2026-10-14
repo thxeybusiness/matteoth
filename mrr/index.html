@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>MRR — Matteo</title>
-  <meta name="description" content="La page MRR arrive." />
+  <meta name="description" content="Trois formations en modules vidéo pour lancer ou développer un business en ligne : CFS, JDS et CLM." />
   <link rel="canonical" href="https://matteoth.com/mrr" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matteoth.com/mrr" />
   <meta property="og:title" content="MRR — Matteo" />
-  <meta property="og:description" content="La page MRR arrive." />
+  <meta property="og:description" content="Trois formations en modules vidéo pour lancer ou développer un business en ligne : CFS, JDS et CLM." />
   <meta property="og:locale" content="fr_FR" />
 
   <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
@@ -26,14 +26,14 @@
   <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
        n'est pas décoratif : sans lui le préchargement est refait. -->
   <link rel="preload" href="/assets/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=2" />
+  <link rel="stylesheet" href="/assets/site.css?v=3" />
 </head>
 
-<body class="plein">
-  <div class="lueur" aria-hidden="true"></div>
-  <div class="horizon" aria-hidden="true"></div>
-  <div class="filet" aria-hidden="true"></div>
+<body>
+  <div class="lueur haut" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <!-- La même barre sur les trois pages ; aria-current marque la page
@@ -44,12 +44,58 @@
     <a href="/aulne">Aulne</a>
   </nav>
 
-  <!-- [À COMPLÉTER] Le contenu MRR de Matteo : offres, prix, liens d'achat.
-       Rien d'inventé ne part en ligne — la page reste en attente d'ici là. -->
-  <main class="centre">
-    <h1 class="annonce">La page MRR arrive<span class="point">.</span></h1>
-  </main>
+  <main class="contenu">
+    <header class="ouverture">
+      <span class="surtitre">MRR</span>
+      <h1>Trois formations, <em>selon ton budget.</em></h1>
+      <p class="chapeau">
+        Des modules vidéo explicatifs pour lancer ou développer un business en ligne.
+      </p>
+    </header>
 
-  <p class="pied">matteoth.com</p>
+    <!-- LES TROIS FORMATIONS, TELLES QUE MATTEO LES A DONNÉES : nom, ce
+         qu'elle contient et pour qui, prix, lien d'achat. Rien d'autre n'est
+         écrit — pas de résultat promis, pas de « la plus choisie ».
+
+         Les liens sont COUPÉS à l'adresse du produit : copiés depuis la bio
+         Instagram, ils traînaient fbclid, utm_ et referrer, et chaque vente
+         venue du site aurait été comptée comme venue d'Instagram.
+
+         « x2 » n'est pas un second produit mais le paiement en deux fois du
+         même : il vit sur la carte de sa formation, pas dans une carte à
+         part — deux cartes au même nom à deux prix se lisent comme deux
+         offres. 2 × 64 € fait 128 €, un euro de plus que JDS en une fois :
+         confirmé par Matteo, et écrit en clair sur le lien. -->
+    <section class="formations" aria-label="Les formations">
+      <article class="formation">
+        <span class="budget">Petit budget</span>
+        <h2>CFS</h2>
+        <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent commencer un business en ligne avec un petit budget.</p>
+        <p class="prix">35&nbsp;€</p>
+        <div class="deux-fois"><span>Paiement en une fois</span></div>
+        <a class="acheter" href="https://mtodigit.store/shop/3e719a63-a5ea-4c37-821d-4d779d9768d3" target="_blank" rel="noopener">Acheter CFS <span aria-hidden="true">&rarr;</span></a>
+      </article>
+
+      <article class="formation">
+        <span class="budget">Budget moyen</span>
+        <h2>JDS</h2>
+        <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent développer un business en ligne avec un budget moyen.</p>
+        <p class="prix">127&nbsp;€</p>
+        <div class="deux-fois"><a aria-label="Payer JDS en deux fois : 2 × 64 €, 128 € au total" href="https://mtodigit.store/shop/8eb7f9db-8e79-43b5-b6c3-3114b1f535b3" target="_blank" rel="noopener">ou 2&nbsp;×&nbsp;64&nbsp;€ (128&nbsp;€)</a></div>
+        <a class="acheter" href="https://mtodigit.store/shop/c63ba0fb-502d-476b-ab03-996b086ca634" target="_blank" rel="noopener">Acheter JDS <span aria-hidden="true">&rarr;</span></a>
+      </article>
+
+      <article class="formation">
+        <span class="budget">Budget plus haut</span>
+        <h2>CLM</h2>
+        <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent développer leur business en ligne avec un budget plus haut, pour scale.</p>
+        <p class="prix">300&nbsp;€</p>
+        <div class="deux-fois"><a aria-label="Payer CLM en deux fois : 2 × 150 €" href="https://mtodigit.store/shop/93f2d0aa-79a2-4eda-8ba8-99dbb790da8d" target="_blank" rel="noopener">ou 2&nbsp;×&nbsp;150&nbsp;€</a></div>
+        <a class="acheter" href="https://mtodigit.store/shop/95ce8405-564e-4250-8bbf-a395b533d876" target="_blank" rel="noopener">Acheter CLM <span aria-hidden="true">&rarr;</span></a>
+      </article>
+    </section>
+
+    <p class="fin">matteoth.com</p>
+  </main>
 </body>
 </html>

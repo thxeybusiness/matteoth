@@ -7,7 +7,7 @@ reprise de simonbsns.com.
 
 ```
 index.html          l'accueil : la photo et « Le site arrive. »
-mrr/index.html      LE MRR : en attente du contenu (« La page MRR arrive. »)
+mrr/index.html      LE MRR : les trois formations, CFS, JDS et CLM
 aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
                     de la plateforme de marque d'Aulne, DANS LA CHARTE D'AULNE
 aulne/aulne.css     la charte d'Aulne : Crème, Marine, Bleu ; Unbounded, Figtree
@@ -28,8 +28,19 @@ Trois pages, reliées par la même barre : **Accueil · MRR · Aulne**.
 
 - **Accueil** reste volontairement vide (consigne du propriétaire) : la photo
   et une ligne.
-- **MRR** attend son contenu — offres, prix, liens d'achat. Rien d'inventé ne
-  part en ligne.
+- **MRR** : trois formations, telles que Matteo les a données.
+
+  | Formation | Pour qui | En une fois | En deux fois |
+  | --- | --- | --- | --- |
+  | CFS | commencer, petit budget | 35 € | — |
+  | JDS | développer, budget moyen | 127 € | 2 × 64 € (128 €, voulu) |
+  | CLM | développer et scale, budget plus haut | 300 € | 2 × 150 € |
+
+  Le paiement en deux fois vit sur la carte de sa formation, pas dans une
+  carte à part. Les liens d'achat sont coupés à l'adresse du produit (sans
+  fbclid ni utm d'Instagram). **Ils n'ont pas pu être vérifiés depuis le
+  conteneur** : mtodigit.store y répond 404 à tout, page d'accueil
+  comprise. À cliquer une fois chacun sur le site en ligne.
 - **Aulne** est dans la DA d'Aulne, pas dans celle du site : c'est une
   marque à part, avec son livre de marque. Le logo (emblème + mot) est
   recopié tel quel de la « Charte Aulne », jamais recomposé. Le texte reprend
