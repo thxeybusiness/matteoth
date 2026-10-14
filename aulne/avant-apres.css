@@ -51,18 +51,23 @@
    ============================================================ */
 .aulne-ba.preuve {
   background: none; padding: 0; overflow: visible; isolation: auto;
-  display: flex; align-items: center; justify-content: center; gap: 22px;
-  margin: 44px auto 0; text-align: left;
+  margin: 44px auto 0; text-align: center;
 }
 .preuve-titre {
   font: 900 clamp(15px, 1.6vw, 19px)/1.05 'Unbounded', 'Arial Black', sans-serif;
   letter-spacing: -0.04em; text-transform: uppercase; color: var(--creme);
 }
 .preuve-titre span { color: var(--sable); }
-.preuve-client { margin-top: 8px; font-size: 13px; letter-spacing: 0.02em; color: rgba(244, 238, 227, 0.7); }
+
+/* Un encart par client, côte à côte ; l'un sous l'autre au téléphone. */
+.cas-liste { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 18px; }
+.cas { margin: 0; }
+.cas figcaption { margin-top: 9px; font-size: 13px; letter-spacing: 0.02em; color: rgba(244, 238, 227, 0.7); }
 
 .aulne-ba.preuve .ba-frame { width: clamp(220px, 26vw, 300px); flex: none; border-radius: 16px; padding: 5px; box-shadow: 0 24px 60px -24px rgba(0,0,0,.7), 0 0 60px -20px rgba(201,182,148,.3); }
-.aulne-ba.preuve .ba-compare { aspect-ratio: 4 / 3; border-radius: 12px; }
+/* 16:10 et non 4:3 : le mot « thcoaching » est large, un cadre plus carré
+   en coupait les deux bouts. Les logos carrés de Nero y tiennent encore. */
+.aulne-ba.preuve .ba-compare { aspect-ratio: 16 / 10; border-radius: 12px; }
 .aulne-ba.preuve .ba-shine { width: 120px; margin-left: -60px; }
 .aulne-ba.preuve .ba-line { width: 2px; margin-left: -1px; box-shadow: 0 0 12px 1px rgba(244,238,227,.7); }
 .aulne-ba.preuve .ba-handle { width: 30px; height: 30px; margin: -15px 0 0 -15px; box-shadow: 0 0 0 5px rgba(244,238,227,.15), 0 0 24px rgba(244,238,227,.5); }
@@ -71,9 +76,11 @@
 .aulne-ba.preuve .ba-t-before { left: 8px; }
 .aulne-ba.preuve .ba-t-after { right: 8px; }
 
-/* Au téléphone, la ligne passe au-dessus de l'image : côte à côte, les deux
-   tiendraient chacun sur la moitié de 320 px. */
-@media (max-width: 520px) {
-  .aulne-ba.preuve { flex-direction: column; gap: 14px; text-align: center; margin-top: 32px; }
-  .aulne-ba.preuve .ba-frame { width: min(260px, 100%); }
+/* Au téléphone, les clients passent l'un sous l'autre, à la même largeur :
+   côte à côte sur 390 px, chacun se tassait à une taille différente. */
+@media (max-width: 600px) {
+  .aulne-ba.preuve { margin-top: 32px; }
+  .cas-liste { flex-direction: column; align-items: center; }
+  .cas { width: min(280px, 100%); }
+  .aulne-ba.preuve .ba-frame { width: 100%; }
 }
