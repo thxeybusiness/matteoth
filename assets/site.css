@@ -1,17 +1,16 @@
-/* Feuille de style de matteoth.com, COMMUNE AUX TROIS PAGES.
+/* Feuille de style de matteoth.com, COMMUNE à l'accueil et à /mrr.
  *
- * Le style vivait dans une balise de l'accueil. Recopié sur /mrr et /aulne,
- * il aurait divergé à la première retouche faite sur une page et pas sur les
- * autres — la leçon de simonbsns, où la même chose a failli arriver.
- *
- * La page Aulne n'en dépend PAS : elle porte la charte d'Aulne, dans
- * aulne/aulne.css.
+ * Même exigence que la page Aulne — fond qui vit, titres gras et serrés,
+ * très peu de texte — mais dans la DA du site : noir et bleu, General Sans
+ * pour les titres, Satoshi pour le texte. La page Aulne porte sa propre
+ * charte, dans aulne/aulne.css, et n'utilise pas ce fichier.
  */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --bg: #02030a;          /* noir à peine bleuté, contre le banding */
+  --nuit: #050a1c;        /* le bas du dégradé, avant le bleu */
   --ink: #f5f7ff;         /* 19,9:1 */
   --ink-soft: #9aa3bd;    /*  8,2:1 */
   --ink-faint: #757d95;   /*  5,0:1 — le plancher de la page */
@@ -21,238 +20,231 @@
   --bleu-vif: #224cc9;    /* la lumière */
   --bleu-clair: #7390e7;  /*  6,7:1 */
   --bleu-pale: #b0c1f2;   /* 11,5:1 */
-  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 
 html { -webkit-text-size-adjust: 100%; }
+/* Jamais de fond uni : le noir descend vers le bleu nuit. */
 body {
   min-height: 100svh;
-  background-color: var(--bg);
+  background: linear-gradient(170deg, var(--bg) 0%, var(--bg) 35%, var(--nuit) 70%, #081236 100%);
   color: var(--ink);
   font-family: "Satoshi", system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   position: relative;
   overflow-x: hidden;
 }
 
 /* ============================================================
-   FONDS
+   FONDS — halos qui dérivent, grain, horizon
    ============================================================ */
 
-/* UN horizon de lumière bleue qui monte du bas, au lieu des deux cônes
-   de simonbsns : même gamme, autre geste. Couches fixes et non
-   background-attachment, qu'iOS Safari ignore. */
+/* Halos flous qui bougent lentement, comme sur Aulne, en bleus seulement.
+   Le flou est dans le dégradé lui-même et non dans un filter : sur une
+   grande surface, le téléphone découpe un filter en tuiles et laisse une
+   arête droite à l'écran. */
+.halo { position: fixed; border-radius: 50%; pointer-events: none; }
+.halo.vif   { width: 75vmax; height: 75vmax; left: -28vmax; top: -34vmax;
+  background: radial-gradient(closest-side, rgba(34, 76, 201, 0.42), transparent); animation: derive 24s ease-in-out infinite alternate; }
+.halo.clair { width: 55vmax; height: 55vmax; right: -22vmax; top: 10vh;
+  background: radial-gradient(closest-side, rgba(115, 144, 231, 0.20), transparent); animation: derive 28s ease-in-out infinite alternate-reverse; }
+.halo.blanc { width: 38vmax; height: 38vmax; left: 40%; top: 32%;
+  background: radial-gradient(closest-side, rgba(245, 247, 255, 0.05), transparent); animation: derive 32s ease-in-out infinite alternate; }
+@keyframes derive { to { transform: translate(6vmax, 4vmax) scale(1.08); } }
+
+/* Grain : sans lui, les dégradés se découpent en paliers. */
+.grain {
+  position: fixed; inset: 0; pointer-events: none;
+  opacity: 0.08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* L'horizon de l'accueil, la signature du site : un arc de lumière bleue qui
+   monte du bas. Dégradés seulement, ni box-shadow ni filter (même raison). */
 .horizon, .filet {
   position: fixed; left: 50%; transform: translateX(-50%);
   width: 160vmax; height: 160vmax; border-radius: 50%;
-  top: calc(100svh - 26vh);
+  top: calc(100svh - 24vh);
   pointer-events: none;
 }
-/* Ni box-shadow ni filter ici : sur un élément de cette taille, le
-   téléphone découpe l'ombre en tuiles et laisse une arête droite en
-   travers de l'écran. Tout est dans des dégradés, qui ne se découpent pas. */
-.horizon {
-  background: radial-gradient(closest-side, var(--bg) 90%, rgba(22, 49, 131, 0.6) 98%, rgba(34, 76, 201, 0.75) 100%);
-}
-/* Le filet qui borde l'horizon, à part et SANS flou : c'est lui qui
-   donne la courbure, le halo seul se lirait comme une tache. */
-.filet { border-top: 1px solid rgba(176, 193, 242, 0.7); }
-
-/* La lueur au-dessus de l'horizon : une couche plein écran à part. */
+.horizon { background: radial-gradient(closest-side, var(--bg) 90%, rgba(22, 49, 131, 0.65) 98%, rgba(34, 76, 201, 0.8) 100%); }
+.filet { border-top: 1px solid rgba(176, 193, 242, 0.75); }
 .lueur {
   position: fixed; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse 90% 45% at 50% 100%, rgba(34, 76, 201, 0.5), rgba(13, 30, 77, 0.3) 55%, transparent 80%);
 }
-/* Grain : sans lui, le dégradé se découpe en paliers. */
-.grain {
-  position: fixed; inset: 0; pointer-events: none;
-  opacity: 0.05; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
 
 /* ============================================================
-   LA BARRE — Accueil · MRR · Aulne
+   EN-TÊTE — la marque à gauche, la barre à droite (comme sur Aulne)
    ============================================================ */
-.barre {
-  position: relative; z-index: 1;
-  display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
-  padding: max(20px, env(safe-area-inset-top)) 16px 0;
+.entete {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: max(18px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
 }
+.marque {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  font-family: "General Sans", sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: -0.03em;
+  color: var(--ink); text-decoration: none;
+}
+.marque img {
+  width: 32px; height: 32px; border-radius: 50%; object-fit: cover;
+  border: 1px solid rgba(176, 193, 242, 0.45);
+}
+
+.barre { display: flex; gap: 4px; flex-wrap: wrap; }
 /* 44 px de haut : un onglet se rate au pouce comme un bouton. */
 .barre a {
   display: inline-flex; align-items: center; min-height: 44px;
-  padding: 10px 18px; border-radius: 999px;
-  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.9rem;
-  color: var(--ink-soft); text-decoration: none; line-height: 1.2;
+  padding: 10px 14px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: -0.01em;
+  color: rgba(245, 247, 255, 0.62); text-decoration: none;
   border: 1px solid transparent;
-  transition: color 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
+  transition: color 0.2s var(--ease), background 0.2s var(--ease);
 }
-.barre a:hover { color: var(--ink); background: rgba(22, 49, 131, 0.3); }
-/* aria-current fait le travail du style ET celui du lecteur d'écran : la
-   page courante ne se signale pas qu'en couleur. */
+.barre a:hover { color: var(--ink); }
+/* aria-current : la page ouverte ne se signale pas qu'en couleur. */
 .barre a[aria-current="page"] {
   color: var(--ink); background: rgba(22, 49, 131, 0.45);
-  border-color: rgba(115, 144, 231, 0.3);
+  border-color: rgba(115, 144, 231, 0.32);
 }
 
 /* ============================================================
-   PAGES PLEIN ÉCRAN — l'accueil et ce qui n'est pas encore écrit
+   TITRES — General Sans en capitales, très gras, serré
    ============================================================ */
-/* La barre en haut, le bloc centré dans ce qui reste. svh et non vh : sur
-   téléphone, vh compte la barre d'adresse et le bloc passerait sous le pli. */
-body.plein {
-  height: 100svh; overflow: hidden;
-  display: grid; grid-template-rows: auto 1fr;
-}
-.plein main { align-self: center; padding: 24px 24px 72px; }
-
-/* La photo et la ligne forment un bloc centré. */
-.centre { position: relative; display: flex; flex-direction: column; align-items: center; gap: 28px; }
-
-.profil {
-  width: clamp(88px, 22vw, 120px); height: auto; aspect-ratio: 1;
-  border-radius: 50%; object-fit: cover;
-  /* Le liseré et la lueur reprennent l'horizon : la photo appartient à
-     la même lumière que le bas de la page. */
-  border: 1px solid rgba(176, 193, 242, 0.45);
-  box-shadow: 0 0 0 6px rgba(13, 30, 77, 0.55), 0 12px 48px rgba(34, 76, 201, 0.5);
-  animation: monte 1.2s var(--ease) both;
-}
-
-.annonce {
-  position: relative;
-  font-family: "General Sans", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(2rem, 7vw, 4.5rem);
-  letter-spacing: -0.03em; line-height: 1.1;
-  text-align: center; text-wrap: balance;
-  animation: monte 1.2s var(--ease) 0.15s both;
-}
-/* Le point bat doucement : seul signe que la page est « en cours ».
-   Il est en bleu clair et non en bleu nuit, illisible sur ce fond. */
-.annonce .point { color: var(--bleu-clair); animation: bat 2.4s ease-in-out infinite; }
-
-.pied {
-  position: fixed; left: 0; right: 0;
-  bottom: max(20px, env(safe-area-inset-bottom));
-  text-align: center;
-  font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--ink-faint);
-}
-
-/* ============================================================
-   PAGE QUI DÉFILE — MRR
-   ============================================================ */
-/* Sur une page qui défile, l'horizon fixe passerait SOUS les cartes à
-   chaque écran : la lumière vient alors d'en haut, et s'éteint en
-   descendant. */
-.lueur.haut {
-  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(34, 76, 201, 0.38), rgba(13, 30, 77, 0.22) 55%, transparent 80%);
-}
-
-.contenu { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-.ouverture { padding: 64px 0 8px; text-align: center; }
-.surtitre {
-  display: inline-block;
-  font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--bleu-clair);
-}
-.ouverture h1 {
-  margin-top: 16px;
-  font-family: "General Sans", sans-serif; font-weight: 700;
-  font-size: clamp(2rem, 5.6vw, 3.6rem); letter-spacing: -0.03em; line-height: 1.08;
+/* Le reflet reste dans les blancs et les bleus clairs : le titre ne passe
+   jamais par une teinte illisible sur le noir. */
+.titre {
+  font-family: "General Sans", system-ui, sans-serif; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.055em; line-height: 0.92;
   text-wrap: balance;
-  animation: monte 1.2s var(--ease) both;
+  background: linear-gradient(100deg, var(--ink) 0%, var(--ink) 36%, var(--bleu-pale) 50%, var(--ink) 64%, var(--ink) 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  animation: reflet 7s linear infinite, monte 1.1s var(--ease) both;
 }
-.ouverture h1 em { font-style: normal; color: var(--bleu-pale); }
-.chapeau {
-  max-width: 560px; margin: 18px auto 0;
-  font-size: clamp(1rem, 1.8vw, 1.1rem); color: var(--ink-soft);
-  animation: monte 1.2s var(--ease) 0.15s both;
+.accroche {
+  margin-top: 16px;
+  font-family: "General Sans", sans-serif; font-weight: 600;
+  font-size: clamp(1.05rem, 2.4vw, 1.5rem); letter-spacing: -0.02em;
+  color: var(--bleu-clair);
+  animation: monte 1.1s var(--ease) 0.12s both;
 }
+
+/* ============================================================
+   ACCUEIL — un écran
+   ============================================================ */
+body.plein { height: 100svh; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.plein main {
+  position: relative; z-index: 1; align-self: center;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0 20px 14vh;
+}
+.profil {
+  width: clamp(76px, 18vw, 104px); height: auto; aspect-ratio: 1;
+  border-radius: 50%; object-fit: cover;
+  /* Liseré et lueur reprennent l'horizon : la photo est dans la même lumière. */
+  border: 1px solid rgba(176, 193, 242, 0.5);
+  box-shadow: 0 0 0 6px rgba(13, 30, 77, 0.6), 0 14px 50px rgba(34, 76, 201, 0.55);
+  animation: monte 1.1s var(--ease) both;
+}
+.plein .titre { margin-top: 28px; font-size: clamp(2.6rem, 11vw, 8.5rem); }
+/* Le point bat doucement : seul signe que la page est « en cours ». Hors du
+   reflet, en bleu clair plein. */
+.titre .point { color: var(--bleu-clair); -webkit-text-fill-color: var(--bleu-clair); animation: bat 2.4s ease-in-out infinite; }
+
+/* ============================================================
+   MRR — l'ouverture, puis les trois formations
+   ============================================================ */
+.contenu { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.ouverture { padding: clamp(48px, 9vh, 96px) 0 0; text-align: center; }
+.ouverture .titre { font-size: clamp(2.5rem, 9vw, 7rem); }
 
 /* Trois formations côte à côte, l'une sous l'autre au téléphone — jamais
    trois colonnes écrasées. */
 .formations {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;
-  margin-top: 48px;
-  animation: monte 1.2s var(--ease) 0.3s both;
+  margin-top: clamp(40px, 6vw, 64px);
+  animation: monte 1.1s var(--ease) 0.24s both;
 }
 /* La carte N'EST PAS un lien : JDS et CLM ont deux destinations (une fois,
    deux fois), et deux destinations ne tiennent pas dans un lien. Le bouton
-   principal prend toute la largeur : la cible reste large au pouce. */
+   principal prend toute la largeur : la cible reste large au pouce.
+   Le liseré est un dégradé (padding + fond), pas une ombre : plus lumineux
+   en haut, comme si la lumière venait des halos. */
 .formation {
-  display: flex; flex-direction: column;
-  padding: 26px 24px 24px; border-radius: 20px;
-  background: linear-gradient(180deg, rgba(13, 30, 77, 0.5), rgba(13, 30, 77, 0.18));
-  border: 1px solid rgba(115, 144, 231, 0.18);
+  position: relative; border-radius: 26px; padding: 1px;
+  background: linear-gradient(160deg, rgba(176, 193, 242, 0.45), rgba(115, 144, 231, 0.08) 45%, rgba(34, 76, 201, 0.35));
+}
+.formation-corps {
+  height: 100%; display: flex; flex-direction: column;
+  padding: 26px 24px 24px; border-radius: 25px;
+  background: linear-gradient(180deg, rgba(10, 20, 52, 0.96), rgba(4, 8, 22, 0.96));
 }
 .formation .budget {
   align-self: flex-start;
-  padding: 6px 12px; border-radius: 999px;
-  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
-  color: var(--bleu-pale); background: rgba(22, 49, 131, 0.45);
-  border: 1px solid rgba(115, 144, 231, 0.22);
+  padding: 7px 12px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.01em;
+  color: var(--bleu-pale); background: rgba(22, 49, 131, 0.5);
+  border: 1px solid rgba(115, 144, 231, 0.25);
 }
 .formation h2 {
-  margin-top: 18px;
+  margin-top: 22px;
   font-family: "General Sans", sans-serif; font-weight: 700;
-  font-size: 2rem; letter-spacing: -0.02em; line-height: 1;
+  font-size: clamp(2.6rem, 4.4vw, 3.4rem); letter-spacing: -0.055em; line-height: 0.9;
 }
 /* flex: 1 pousse le prix et les boutons en bas : une description d'une
    ligne de plus ne décale pas le prix d'une carte par rapport aux autres. */
-.formation .quoi { flex: 1; margin-top: 12px; font-size: 0.97rem; color: var(--ink-soft); }
-
+.formation .quoi { flex: 1; margin-top: 12px; font-size: 0.95rem; color: var(--ink-soft); }
 .formation .prix {
-  margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(115, 144, 231, 0.16);
+  margin-top: 26px;
   font-family: "General Sans", sans-serif; font-weight: 700;
-  font-size: 2.4rem; letter-spacing: -0.03em; line-height: 1;
+  font-size: clamp(2.8rem, 4.6vw, 3.6rem); letter-spacing: -0.06em; line-height: 0.9;
 }
-.formation .prix small { font-family: "Satoshi", sans-serif; font-weight: 400; font-size: 0.9rem; letter-spacing: 0; color: var(--ink-faint); margin-left: 6px; }
 
 /* La rangée du paiement en deux fois existe sur TOUTES les cartes, même
    celle qui n'en a pas : sans elle, le bouton de CFS remonterait de 44 px
    par rapport aux deux autres. */
-.deux-fois { min-height: 44px; margin-top: 12px; display: flex; align-items: center; }
+.deux-fois { min-height: 44px; margin-top: 14px; display: flex; align-items: center; }
 .deux-fois a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
   border-radius: 999px; text-decoration: none;
-  font-size: 0.9rem; color: var(--bleu-pale);
-  border: 1px solid rgba(115, 144, 231, 0.3);
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: -0.01em;
+  color: var(--bleu-pale);
+  border: 1px solid rgba(115, 144, 231, 0.32);
+  background: rgba(22, 49, 131, 0.25);
 }
-.deux-fois a:hover { color: var(--ink); background: rgba(22, 49, 131, 0.35); }
-.deux-fois span { font-size: 0.9rem; color: var(--ink-faint); }
+.deux-fois a:hover { color: var(--ink); background: rgba(22, 49, 131, 0.5); }
+.deux-fois span { font-size: 0.88rem; color: var(--ink-faint); }
 
 .acheter {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 52px; margin-top: 14px; padding: 14px 20px; border-radius: 999px;
-  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 1rem;
+  min-height: 54px; margin-top: 12px; padding: 14px 20px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: -0.02em;
   color: #fff; text-decoration: none;
-  background: linear-gradient(180deg, var(--bleu), var(--bleu-nuit));
-  border: 1px solid rgba(115, 144, 231, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(34, 76, 201, 0.7);
+  background: linear-gradient(180deg, var(--bleu-vif), var(--bleu) 55%, var(--bleu-nuit));
+  border: 1px solid rgba(176, 193, 242, 0.45);
+  box-shadow: 0 12px 34px -10px rgba(34, 76, 201, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
-.acheter:hover { transform: translateY(-1px); box-shadow: 0 14px 36px -10px rgba(34, 76, 201, 0.85); }
+.acheter:hover { transform: translateY(-1px); box-shadow: 0 16px 40px -10px rgba(34, 76, 201, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.18); }
 
-.fin { padding: 96px 0 56px; text-align: center; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+.fin { padding: 88px 0 48px; text-align: center; font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.02em; color: var(--ink-faint); }
 
 @media (max-width: 860px) {
-  .formations { grid-template-columns: minmax(0, 1fr); max-width: 480px; margin-left: auto; margin-right: auto; }
-  .ouverture { padding-top: 48px; }
+  .formations { grid-template-columns: minmax(0, 1fr); max-width: 460px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 520px) {
+  .marque { font-size: 0.98rem; }
+  .barre a { padding: 10px 11px; font-size: 0.84rem; }
 }
 
-@media (max-width: 400px) {
-  .barre { gap: 4px; }
-  .barre a { padding: 10px 14px; font-size: 0.86rem; }
-}
-
-@keyframes monte { from { opacity: 0; transform: translateY(12px); } }
+@keyframes reflet { to { background-position: -250% center; } }
+@keyframes monte { from { opacity: 0; transform: translateY(14px); } }
 @keyframes bat { 50% { opacity: 0.25; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .profil, .annonce, .annonce .point, .ouverture h1, .chapeau, .formations { animation: none; }
-  .acheter { transition: none; }
+  .halo, .titre, .titre .point, .accroche, .profil, .formations { animation: none; }
+  .acheter, .barre a { transition: none; }
 }

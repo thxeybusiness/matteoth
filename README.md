@@ -14,7 +14,9 @@ aulne/aulne.css     la charte d'Aulne : Crème, Marine, Bleu ; Unbounded, Figtre
 aulne/fonts/        Unbounded et Figtree, servies par le site
 aulne/avant-apres.* la section avant/après fournie par Thomas (Nero)
 aulne/assets/       nero-avant.png et nero-apres.png, ses deux images
-assets/site.css     la feuille commune à l'accueil et à /mrr
+assets/site.css     la feuille commune à l'accueil et à /mrr : même exigence
+                    que la page Aulne (halos, titres gras et serrés), en noir
+                    et bleu, General Sans et Satoshi
 assets/fonts.css    General Sans et Satoshi, servies par le site
 assets/profil.jpg   la photo de profil de l'accueil
 assets/favicon-*.png  favicons ronds (32, 192, 512)
