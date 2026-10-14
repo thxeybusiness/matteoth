@@ -6,7 +6,8 @@ les fichiers du dépôt sont ce que le navigateur reçoit. Gamme bleu et noir
 reprise de simonbsns.com.
 
 ```
-index.html          l'accueil : la photo et « Le site arrive. »
+index.html          l'accueil : la photo et « Le site arrive. », puis « Le
+                    business » — le MRR expliqué et illustré
 mrr/index.html      LE MRR : les trois formations, CFS, JDS et CLM
 aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
                     de la plateforme de marque d'Aulne, DANS LA CHARTE D'AULNE

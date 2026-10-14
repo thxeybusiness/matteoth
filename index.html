@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>Matteo — Le site arrive</title>
-  <meta name="description" content="Le site arrive." />
+  <meta name="description" content="Le MRR : tu achètes un produit numérique une seule fois, avec le droit de le revendre autant de fois que tu veux." />
   <link rel="canonical" href="https://matteoth.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matteoth.com/" />
@@ -26,33 +26,118 @@
   <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
        n'est pas décoratif : sans lui le préchargement est refait. -->
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=5" />
+  <link rel="stylesheet" href="/assets/site.css?v=7" />
 </head>
 
-<body class="plein">
-  <div class="lueur" aria-hidden="true"></div>
-  <div class="horizon" aria-hidden="true"></div>
-  <div class="filet" aria-hidden="true"></div>
+<body>
   <div class="halo vif" aria-hidden="true"></div>
   <div class="halo clair" aria-hidden="true"></div>
   <div class="halo blanc" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- La marque à gauche, la barre à droite : la même disposition que la
-       page Aulne, dans les couleurs du site. -->
-  <header class="entete">
-    <a class="marque" href="/"><img src="/assets/profil.jpg?v=3" alt="" width="32" height="32" />matteoth</a>
-    <nav class="barre" aria-label="Navigation">
-      <a href="/" aria-current="page">Accueil</a>
-      <a href="/mrr">MRR</a>
-      <a href="/aulne">Aulne</a>
-    </nav>
-  </header>
+  <!-- PREMIER ÉCRAN : la barre, la photo, le titre, l'horizon. -->
+  <div class="premier-ecran">
+    <div class="ciel" aria-hidden="true">
+      <div class="lueur"></div>
+      <div class="horizon"></div>
+      <div class="filet"></div>
+    </div>
 
-  <main>
-    <img src="/assets/profil.jpg?v=3" alt="Matteo" class="profil" width="104" height="104" />
-    <h1 class="titre">Le site<br />arrive<span class="point">.</span></h1>
-  </main>
+    <!-- La marque à gauche, la barre à droite : la même disposition que la
+         page Aulne, dans les couleurs du site. -->
+    <header class="entete">
+      <a class="marque" href="/"><img src="/assets/profil.jpg?v=3" alt="" width="32" height="32" />matteoth</a>
+      <nav class="barre" aria-label="Navigation">
+        <a href="/" aria-current="page">Accueil</a>
+        <a href="/mrr">MRR</a>
+        <a href="/aulne">Aulne</a>
+      </nav>
+    </header>
+
+    <main>
+      <img src="/assets/profil.jpg?v=3" alt="Matteo" class="profil" width="104" height="104" />
+      <h1 class="titre">Le site<br />arrive<span class="point">.</span></h1>
+      <a class="vers-bas" href="#business">Le business <span aria-hidden="true">&darr;</span></a>
+    </main>
+  </div>
+
+  <!-- LE BUSINESS — le MRR, avec les mots de Matteo, découpés en trois
+       étapes et deux faits. Rien d'ajouté : ni chiffre, ni promesse de gain.
+       L'illustration est décorative (aria-hidden) : le texte dit tout. -->
+  <section class="business" id="business">
+    <span class="surtitre">Le business</span>
+    <h2 class="titre">Le MRR</h2>
+    <p class="accroche">Un produit numérique, acheté une fois, revendu autant de fois que tu veux.</p>
+
+    <svg class="reseau" viewBox="0 0 720 300" aria-hidden="true">
+        <defs><radialGradient id="toi-degrade" cx="50%" cy="35%" r="65%"><stop offset="0" stop-color="#224cc9"/><stop offset="1" stop-color="#0d1e4d"/></radialGradient></defs>
+        <path class="lien loin" d="M205 62 L110 55"/><path class="lien loin" d="M205 62 L149 14"/><path class="lien loin" d="M160 150 L73 179"/><path class="lien loin" d="M160 150 L73 121"/><path class="lien loin" d="M205 238 L149 286"/><path class="lien loin" d="M205 238 L110 245"/><path class="lien loin" d="M515 62 L571 14"/><path class="lien loin" d="M515 62 L610 55"/><path class="lien loin" d="M560 150 L647 121"/><path class="lien loin" d="M560 150 L647 179"/><path class="lien loin" d="M515 238 L610 245"/><path class="lien loin" d="M515 238 L571 286"/>
+        <path class="lien" d="M360 150 L205 62"/><path class="lien" d="M360 150 L160 150"/><path class="lien" d="M360 150 L205 238"/><path class="lien" d="M360 150 L515 62"/><path class="lien" d="M360 150 L560 150"/><path class="lien" d="M360 150 L515 238"/>
+        <path class="flux loin" style="animation-delay:1.10s" d="M205 62 L110 55"/><path class="flux loin" style="animation-delay:1.10s" d="M205 62 L149 14"/><path class="flux loin" style="animation-delay:1.55s" d="M160 150 L73 179"/><path class="flux loin" style="animation-delay:1.55s" d="M160 150 L73 121"/><path class="flux loin" style="animation-delay:2.00s" d="M205 238 L149 286"/><path class="flux loin" style="animation-delay:2.00s" d="M205 238 L110 245"/><path class="flux loin" style="animation-delay:2.45s" d="M515 62 L571 14"/><path class="flux loin" style="animation-delay:2.45s" d="M515 62 L610 55"/><path class="flux loin" style="animation-delay:2.90s" d="M560 150 L647 121"/><path class="flux loin" style="animation-delay:2.90s" d="M560 150 L647 179"/><path class="flux loin" style="animation-delay:3.35s" d="M515 238 L610 245"/><path class="flux loin" style="animation-delay:3.35s" d="M515 238 L571 286"/>
+        <path class="flux" style="animation-delay:0.00s" d="M360 150 L205 62"/><path class="flux" style="animation-delay:0.45s" d="M360 150 L160 150"/><path class="flux" style="animation-delay:0.90s" d="M360 150 L205 238"/><path class="flux" style="animation-delay:1.35s" d="M360 150 L515 62"/><path class="flux" style="animation-delay:1.80s" d="M360 150 L560 150"/><path class="flux" style="animation-delay:2.25s" d="M360 150 L515 238"/>
+        <circle class="noeud loin" cx="110" cy="55" r="11"/><text class="euro loin" x="110" y="55">€</text><circle class="noeud loin" cx="149" cy="14" r="11"/><text class="euro loin" x="149" y="14">€</text><circle class="noeud loin" cx="73" cy="179" r="11"/><text class="euro loin" x="73" y="179">€</text><circle class="noeud loin" cx="73" cy="121" r="11"/><text class="euro loin" x="73" y="121">€</text><circle class="noeud loin" cx="149" cy="286" r="11"/><text class="euro loin" x="149" y="286">€</text><circle class="noeud loin" cx="110" cy="245" r="11"/><text class="euro loin" x="110" y="245">€</text><circle class="noeud loin" cx="571" cy="14" r="11"/><text class="euro loin" x="571" y="14">€</text><circle class="noeud loin" cx="610" cy="55" r="11"/><text class="euro loin" x="610" y="55">€</text><circle class="noeud loin" cx="647" cy="121" r="11"/><text class="euro loin" x="647" y="121">€</text><circle class="noeud loin" cx="647" cy="179" r="11"/><text class="euro loin" x="647" y="179">€</text><circle class="noeud loin" cx="610" cy="245" r="11"/><text class="euro loin" x="610" y="245">€</text><circle class="noeud loin" cx="571" cy="286" r="11"/><text class="euro loin" x="571" y="286">€</text>
+        <circle class="noeud" cx="205" cy="62" r="17"/><text class="euro" x="205" y="62">€</text><circle class="noeud" cx="160" cy="150" r="17"/><text class="euro" x="160" y="150">€</text><circle class="noeud" cx="205" cy="238" r="17"/><text class="euro" x="205" y="238">€</text><circle class="noeud" cx="515" cy="62" r="17"/><text class="euro" x="515" y="62">€</text><circle class="noeud" cx="560" cy="150" r="17"/><text class="euro" x="560" y="150">€</text><circle class="noeud" cx="515" cy="238" r="17"/><text class="euro" x="515" y="238">€</text>
+        <circle class="toi" cx="360" cy="150" r="34"/><text class="toi-texte" x="360" y="150">Toi</text>
+      </svg>
+
+    <div class="etapes">
+      <article class="etape"><div class="etape-corps">
+        <svg viewBox="0 0 200 96" aria-hidden="true">
+            <rect x="68" y="14" width="64" height="70" rx="10" fill="none" stroke="#b0c1f2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M92 37 L112 49 L92 61 Z" fill="#7390e7"/>
+            <circle cx="132" cy="18" r="15" fill="#163183" stroke="#b0c1f2" stroke-width="1.6"/>
+            <text x="132" y="19" text-anchor="middle" dominant-baseline="central" font-family="General Sans, sans-serif" font-weight="700" font-size="17" fill="#fff">∞</text>
+          </svg>
+        <span class="num">01</span>
+        <h3>Tu achètes une fois</h3>
+        <p>Un produit numérique, avec le droit de le revendre autant de fois que tu veux.</p>
+      </div></article>
+      <article class="etape"><div class="etape-corps">
+        <svg viewBox="0 0 200 96" aria-hidden="true">
+            <path d="M50 48 L158 16" stroke="rgba(115,144,231,0.45)" stroke-width="1.4" fill="none"/><path d="M50 48 L158 48" stroke="rgba(115,144,231,0.45)" stroke-width="1.4" fill="none"/><path d="M50 48 L158 80" stroke="rgba(115,144,231,0.45)" stroke-width="1.4" fill="none"/>
+            <circle cx="42" cy="48" r="16" fill="#163183" stroke="#b0c1f2" stroke-width="1.6"/>
+            <text x="42" y="48" text-anchor="middle" dominant-baseline="central" font-family="General Sans, sans-serif" font-weight="700" font-size="11" fill="#fff">Toi</text>
+            <circle cx="158" cy="16" r="13" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4"/><text x="158" y="16" text-anchor="middle" dominant-baseline="central" font-family="General Sans, sans-serif" font-weight="700" font-size="12" fill="#b0c1f2">€</text><circle cx="158" cy="48" r="13" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4"/><text x="158" y="48" text-anchor="middle" dominant-baseline="central" font-family="General Sans, sans-serif" font-weight="700" font-size="12" fill="#b0c1f2">€</text><circle cx="158" cy="80" r="13" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4"/><text x="158" y="80" text-anchor="middle" dominant-baseline="central" font-family="General Sans, sans-serif" font-weight="700" font-size="12" fill="#b0c1f2">€</text>
+          </svg>
+        <span class="num">02</span>
+        <h3>Tu revends, tu gardes tout</h3>
+        <p>Chaque fois que tu le revends, tu gardes l'argent de la vente.</p>
+      </div></article>
+      <article class="etape"><div class="etape-corps">
+        <svg viewBox="0 0 200 96" aria-hidden="true">
+            <path d="M39 70 L66 60" stroke="rgba(115,144,231,0.55)" stroke-width="1.4" fill="none" marker-end="url(#fleche)"/><path d="M89 52 L116 42" stroke="rgba(115,144,231,0.55)" stroke-width="1.4" fill="none" marker-end="url(#fleche)"/><path d="M139 34 L164 24" stroke="rgba(115,144,231,0.55)" stroke-width="1.4" fill="none" marker-end="url(#fleche)"/>
+            <defs><marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#7390e7"/></marker></defs>
+            <circle cx="28" cy="74" r="13" fill="#163183" stroke="#b0c1f2" stroke-width="1.4" opacity="1.00"/><circle cx="78" cy="56" r="11" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4" opacity="0.82"/><circle cx="128" cy="38" r="11" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4" opacity="0.64"/><circle cx="176" cy="20" r="11" fill="#0a1434" stroke="#b0c1f2" stroke-width="1.4" opacity="0.46"/>
+          </svg>
+        <span class="num">03</span>
+        <h3>Ton acheteur revend à son tour</h3>
+        <p>Il reçoit le même droit : il peut le revendre lui aussi.</p>
+      </div></article>
+    </div>
+
+    <div class="faits">
+      <div class="fait">
+        <h3>Tout est en ligne</h3>
+        <ul class="pastilles">
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 12.5 L12.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>Pas de stock</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 12.5 L12.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>Pas de colis</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 12.5 L12.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>Pas de livraison</li>
+        </ul>
+      </div>
+      <div class="fait">
+        <h3>Le travail : trouver des acheteurs</h3>
+        <ul class="pastilles">
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.5 L11 8 L6.5 10.5 Z" fill="currentColor"/></svg>Du contenu sur les réseaux</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 3.5 h11 a1 1 0 0 1 1 1 v6 a1 1 0 0 1 -1 1 h-6 l-3 2.5 v-2.5 h-2 a1 1 0 0 1 -1 -1 v-6 a1 1 0 0 1 1 -1 z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>Des messages privés</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="suite"><a class="acheter" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a></div>
+  </section>
+
+  <p class="fin">matteoth.com</p>
 </body>
 </html>
