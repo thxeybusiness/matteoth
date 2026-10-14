@@ -3,6 +3,9 @@
  * Le style vivait dans une balise de l'accueil. Recopié sur /mrr et /aulne,
  * il aurait divergé à la première retouche faite sur une page et pas sur les
  * autres — la leçon de simonbsns, où la même chose a failli arriver.
+ *
+ * La page Aulne n'en dépend PAS : elle porte la charte d'Aulne, dans
+ * aulne/aulne.css.
  */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,12 +64,6 @@ body {
   position: fixed; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse 90% 45% at 50% 100%, rgba(34, 76, 201, 0.5), rgba(13, 30, 77, 0.3) 55%, transparent 80%);
 }
-/* Sur une page qui défile, l'horizon fixe passerait SOUS le texte à chaque
-   écran : la lumière vient alors d'en haut, et s'éteint en descendant. */
-.lueur.haut {
-  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(34, 76, 201, 0.38), rgba(13, 30, 77, 0.22) 55%, transparent 80%);
-}
-
 /* Grain : sans lui, le dégradé se découpe en paliers. */
 .grain {
   position: fixed; inset: 0; pointer-events: none;
@@ -144,84 +141,6 @@ body.plein {
   color: var(--ink-faint);
 }
 
-/* ============================================================
-   PAGES QUI DÉFILENT — Aulne
-   ============================================================ */
-.contenu {
-  position: relative; z-index: 1;
-  max-width: 1040px; margin: 0 auto; padding: 0 24px;
-}
-
-.ouverture { padding: 72px 0 24px; text-align: center; }
-.surtitre {
-  display: inline-block;
-  font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--bleu-clair);
-}
-.ouverture h1 {
-  margin-top: 18px;
-  font-family: "General Sans", sans-serif; font-weight: 700;
-  font-size: clamp(2.1rem, 6vw, 4rem); letter-spacing: -0.03em; line-height: 1.08;
-  text-wrap: balance;
-  animation: monte 1.2s var(--ease) both;
-}
-.ouverture h1 em { font-style: normal; color: var(--bleu-pale); }
-.chapeau {
-  max-width: 640px; margin: 22px auto 0;
-  font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--ink-soft);
-  animation: monte 1.2s var(--ease) 0.15s both;
-}
-
-.bloc { padding-top: 96px; }
-.bloc > h2 {
-  margin-top: 12px;
-  font-family: "General Sans", sans-serif; font-weight: 600;
-  font-size: clamp(1.6rem, 3.6vw, 2.4rem); letter-spacing: -0.02em; line-height: 1.15;
-  text-wrap: balance;
-}
-.bloc > p { max-width: 640px; margin-top: 14px; color: var(--ink-soft); }
-
-/* Les colonnes se replient en une seule sous 760 px : jamais trois cartes
-   écrasées côte à côte au téléphone. */
-.grille { display: grid; gap: 14px; margin-top: 36px; grid-template-columns: repeat(3, 1fr); }
-.grille.deux { grid-template-columns: repeat(2, 1fr); }
-.carte {
-  padding: 24px; border-radius: 18px;
-  background: linear-gradient(180deg, rgba(13, 30, 77, 0.42), rgba(13, 30, 77, 0.16));
-  border: 1px solid rgba(115, 144, 231, 0.16);
-}
-.carte .num {
-  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px;
-  letter-spacing: 0.14em; color: var(--bleu-clair);
-}
-.carte h3 {
-  margin-top: 10px;
-  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 1.12rem; letter-spacing: -0.01em;
-}
-.carte p { margin-top: 8px; font-size: 0.95rem; color: var(--ink-soft); }
-
-/* La différence d'Aulne tient en une phrase : elle a sa bande à elle,
-   plutôt qu'une carte de plus qui la noierait parmi les offres. */
-.bandeau {
-  margin-top: 96px; padding: 40px 28px; border-radius: 22px; text-align: center;
-  background: radial-gradient(ellipse 70% 120% at 50% 0%, rgba(34, 76, 201, 0.35), rgba(13, 30, 77, 0.3) 60%, rgba(13, 30, 77, 0.15));
-  border: 1px solid rgba(115, 144, 231, 0.22);
-}
-.bandeau p {
-  max-width: 620px; margin: 0 auto;
-  font-family: "General Sans", sans-serif; font-weight: 600;
-  font-size: clamp(1.2rem, 2.6vw, 1.6rem); line-height: 1.35; letter-spacing: -0.01em;
-}
-.bandeau .signature { margin-top: 14px; font-family: "Satoshi", sans-serif; font-weight: 400; font-size: 0.95rem; color: var(--bleu-pale); }
-
-.fin { padding: 120px 0 64px; text-align: center; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
-
-@media (max-width: 760px) {
-  .grille, .grille.deux { grid-template-columns: minmax(0, 1fr); }
-  .ouverture { padding-top: 52px; }
-  .bloc { padding-top: 72px; }
-  .bandeau { margin-top: 72px; }
-}
 @media (max-width: 400px) {
   .barre { gap: 4px; }
   .barre a { padding: 10px 14px; font-size: 0.86rem; }
@@ -231,5 +150,5 @@ body.plein {
 @keyframes bat { 50% { opacity: 0.25; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .profil, .annonce, .annonce .point, .ouverture h1, .chapeau { animation: none; }
+  .profil, .annonce, .annonce .point { animation: none; }
 }

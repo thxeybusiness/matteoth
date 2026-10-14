@@ -15,132 +15,178 @@
   <meta property="og:description" content="Aulne accompagne entreprises et particuliers en branding, graphisme et identité visuelle, jusqu'aux pages de vente et sites internet." />
   <meta property="og:locale" content="fr_FR" />
 
-  <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=3" />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=3" />
-  <!-- Safari demande /apple-touch-icon.png à la racine sans lire ce HTML :
-       le fichier ne peut pas déménager. -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
-  <meta name="theme-color" content="#02030a" />
+  <!-- La barre d'adresse du téléphone prend le Marine de la couverture. -->
+  <meta name="theme-color" content="#1C2D4A" />
 
-  <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
-       n'est pas décoratif : sans lui le préchargement est refait. -->
-  <link rel="preload" href="/assets/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=1" />
+  <!-- Polices de la charte d'Aulne, servies par le site comme les autres :
+       un appel à Google Fonts transmettrait l'adresse du visiteur à un tiers.
+       Variables, un fichier par famille couvre toutes les graisses. -->
+  <link rel="preload" href="/aulne/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/aulne/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/aulne/aulne.css?v=1" />
 </head>
 
 <body>
-  <div class="lueur haut" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
+  <!-- LE LOGO D'AULNE, recopié tel quel du livre de marque (« Charte Aulne ») :
+       emblème et mot « aulne » vectorisés. La charte interdit de le
+       recomposer à la main — on ne touche pas à ces tracés, on les colore
+       seulement par currentColor (Crème sur Marine, Marine sur Crème). -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="emb" viewBox="0 0 836 1000"><path d="M455.3 2.4C454.1 4.5 452.6 9.3 451.8 13.4C451.0 17.5 451.1 22.4 450.6 26.8C450.1 31.3 449.5 35.8 448.8 40.3C448.1 44.7 447.4 49.2 446.5 53.7C445.6 58.2 444.6 62.6 443.5 67.1C442.4 71.6 441.2 76.1 440.0 80.5C438.7 85.0 437.4 89.5 435.9 94.0C434.5 98.4 432.9 102.9 431.2 107.4C429.6 111.9 428.0 116.3 426.2 120.8C424.4 125.3 422.4 129.8 420.3 134.2C418.2 138.7 416.1 143.2 413.8 147.7C411.5 152.1 409.1 156.6 406.6 161.1C404.1 165.5 401.4 170.0 398.6 174.5C395.9 179.0 393.1 183.4 390.1 187.9C387.0 192.4 383.9 196.9 380.5 201.3C377.2 205.8 373.7 210.3 370.0 214.8C366.3 219.2 362.4 223.7 358.3 228.2C354.2 232.7 349.8 237.3 345.5 241.6C341.3 246.0 337.0 250.3 332.7 254.3C328.5 258.3 324.4 261.8 320.0 265.5C315.7 269.1 311.2 272.8 306.8 276.2C302.4 279.7 297.9 283.1 293.4 286.3C288.9 289.5 284.4 292.7 280.0 295.6C275.5 298.6 271.0 301.3 266.5 304.0C262.1 306.7 257.6 309.3 253.1 311.9C248.6 314.4 244.2 316.8 239.7 319.3C235.2 321.7 230.7 324.1 226.3 326.4C221.8 328.7 217.3 330.9 212.8 333.0C208.4 335.1 203.9 337.2 199.4 339.3C195.0 341.3 190.5 343.4 186.0 345.6C181.5 347.8 177.1 350.1 172.6 352.4C168.1 354.7 163.6 357.0 159.2 359.3C154.7 361.6 150.2 363.9 145.7 366.3C141.3 368.7 136.8 371.3 132.3 374.0C127.8 376.7 123.4 379.5 118.9 382.4C114.4 385.3 109.9 388.2 105.5 391.4C101.0 394.6 96.5 398.0 92.1 401.6C87.8 405.1 83.7 408.7 79.4 412.6C75.2 416.5 70.6 420.9 66.6 425.0C62.5 429.2 58.6 433.4 55.0 437.7C51.4 441.9 48.2 446.2 45.0 450.6C41.8 455.0 38.7 459.6 35.8 464.0C33.0 468.5 30.5 473.0 28.1 477.5C25.7 481.9 23.5 486.4 21.4 490.9C19.3 495.4 17.3 499.8 15.6 504.3C13.9 508.8 12.4 513.3 11.0 517.7C9.6 522.2 8.4 526.7 7.3 531.2C6.1 535.6 5.1 540.1 4.2 544.6C3.4 549.1 2.6 553.5 2.1 558.0C1.5 562.5 1.2 567.0 0.9 571.4C0.6 575.9 0.3 580.4 0.2 584.9C0.0 589.3 0.1 593.8 0.2 598.3C0.3 602.7 0.6 607.2 1.0 611.7C1.3 616.2 1.6 620.6 2.1 625.1C2.6 629.6 3.3 634.1 4.0 638.5C4.8 643.0 5.5 647.5 6.4 652.0C7.3 656.4 8.3 660.9 9.3 665.4C10.4 669.9 11.6 674.3 12.8 678.8C14.1 683.3 15.4 687.8 16.8 692.2C18.1 696.7 19.6 701.2 21.1 705.7C22.7 710.1 24.4 714.6 26.1 719.1C27.8 723.6 29.6 728.0 31.5 732.5C33.4 737.0 35.4 741.5 37.4 745.9C39.5 750.4 41.6 754.9 43.9 759.3C46.2 763.8 48.9 768.3 51.4 772.8C54.0 777.2 56.4 781.7 59.1 786.2C61.8 790.7 64.7 795.1 67.6 799.6C70.6 804.1 73.6 808.6 76.8 813.0C79.9 817.5 83.2 822.1 86.5 826.5C89.9 830.8 93.4 834.9 96.9 839.1C100.4 843.3 103.7 847.3 107.5 851.6C111.4 855.9 115.6 860.4 119.8 864.8C124.1 869.3 128.8 873.9 133.3 878.2C137.7 882.6 142.2 886.7 146.7 890.7C151.2 894.7 155.6 898.3 160.1 902.0C164.6 905.7 169.1 909.4 173.5 912.8C178.0 916.2 182.5 919.4 187.0 922.6C191.4 925.8 195.9 928.9 200.4 931.9C204.9 934.9 209.3 937.8 213.8 940.6C218.3 943.4 222.8 946.0 227.2 948.6C231.7 951.2 236.2 953.9 240.7 956.3C245.1 958.7 249.6 961.1 254.1 963.3C258.5 965.6 263.0 967.7 267.5 969.8C272.0 971.9 276.4 974.0 280.9 976.0C285.4 977.9 289.9 979.8 294.3 981.6C298.8 983.4 303.3 985.1 307.8 986.7C312.2 988.4 316.7 989.9 321.2 991.4C325.7 992.9 330.3 994.9 334.6 995.8C338.9 996.8 344.1 998.6 346.8 997.0C349.6 995.5 350.1 990.6 351.2 986.6C352.3 982.6 352.5 977.6 353.2 973.2C354.0 968.7 354.8 964.2 355.9 959.7C356.9 955.3 358.1 950.8 359.4 946.3C360.7 941.8 362.1 937.4 363.8 932.9C365.4 928.4 367.2 923.9 369.2 919.5C371.1 915.0 373.4 910.5 375.6 906.0C377.8 901.6 380.0 897.1 382.5 892.6C385.0 888.1 387.8 883.7 390.6 879.2C393.5 874.7 396.4 870.2 399.6 865.8C402.8 861.3 406.4 856.7 410.0 852.3C413.5 848.0 417.2 843.5 421.0 839.4C424.7 835.3 428.6 831.3 432.5 827.6C436.3 823.8 439.9 820.6 444.0 817.0C448.2 813.4 452.9 809.5 457.3 805.9C461.8 802.4 466.3 799.0 470.8 795.8C475.2 792.6 479.7 789.6 484.2 786.6C488.7 783.7 493.1 780.9 497.6 778.3C502.1 775.6 506.6 773.1 511.0 770.7C515.5 768.3 520.0 765.9 524.4 763.6C528.9 761.3 533.4 759.1 537.9 757.0C542.3 755.0 546.8 753.1 551.3 751.2C555.8 749.3 560.2 747.3 564.7 745.5C569.2 743.6 573.7 741.9 578.1 740.2C582.6 738.5 587.1 736.9 591.6 735.3C596.0 733.7 600.5 732.2 605.0 730.6C609.5 729.0 613.9 727.2 618.4 725.7C622.9 724.1 627.4 722.8 631.8 721.3C636.3 719.8 640.8 718.4 645.3 716.8C649.7 715.2 654.2 713.4 658.7 711.7C663.2 710.1 667.6 708.6 672.1 706.8C676.6 705.0 681.0 703.0 685.5 701.0C690.0 699.0 694.5 696.9 698.9 694.8C703.4 692.6 707.9 690.3 712.4 687.9C716.8 685.6 721.3 683.1 725.8 680.4C730.3 677.7 734.8 674.8 739.2 671.7C743.6 668.6 748.0 665.2 752.0 662.0C756.1 658.7 759.9 655.3 763.3 652.1C766.8 648.9 769.4 646.3 772.6 642.8C775.9 639.2 779.7 635.0 782.9 630.9C786.0 626.8 790.6 620.0 791.6 618.1C792.7 616.2 791.7 617.0 789.2 619.5C786.7 621.9 780.9 628.5 776.6 632.8C772.3 637.1 767.7 641.4 763.2 645.1C758.7 648.9 754.2 652.2 749.8 655.3C745.3 658.4 740.8 661.3 736.3 663.9C731.9 666.5 727.4 668.8 722.9 671.0C718.4 673.2 714.0 675.4 709.5 677.3C705.0 679.2 700.5 680.9 696.1 682.4C691.6 684.0 687.1 685.6 682.6 686.8C678.2 688.1 673.7 689.1 669.2 690.1C664.7 691.0 660.3 691.9 655.8 692.6C651.3 693.3 646.9 693.8 642.4 694.3C637.9 694.8 633.4 695.4 629.0 695.6C624.5 695.9 620.0 695.9 615.5 695.8C611.1 695.7 606.6 695.2 602.1 694.9C597.6 694.5 593.2 694.2 588.7 693.5C584.2 692.9 579.7 692.1 575.3 691.2C570.8 690.2 566.3 689.1 561.8 688.0C557.4 686.9 552.9 685.7 548.4 684.4C543.9 683.1 539.5 681.8 535.0 680.2C530.5 678.6 526.0 676.8 521.6 674.9C517.1 673.0 512.6 670.9 508.1 668.8C503.7 666.6 499.2 664.4 494.7 662.1C490.3 659.7 485.8 657.2 481.3 654.6C476.8 652.0 472.4 649.2 467.9 646.3C463.4 643.4 458.9 640.3 454.5 637.1C450.0 633.9 445.5 630.6 441.0 627.1C436.6 623.7 432.0 620.1 427.6 616.4C423.2 612.8 419.0 609.0 414.7 605.3C410.5 601.6 406.2 597.7 402.2 594.1C398.2 590.4 394.9 587.4 390.8 583.4C386.8 579.5 382.2 574.9 377.8 570.5C373.3 566.1 368.8 561.5 364.3 557.0C359.9 552.6 355.4 548.1 350.9 543.6C346.4 539.2 341.9 534.7 337.5 530.4C333.0 526.1 328.4 521.9 324.2 518.0C320.0 514.2 316.4 510.8 312.2 507.2C308.0 503.7 303.6 500.1 299.1 496.6C294.7 493.2 290.2 489.8 285.7 486.6C281.2 483.4 276.8 480.4 272.3 477.5C267.8 474.7 263.3 472.0 258.9 469.4C254.4 466.9 249.9 464.6 245.4 462.4C241.0 460.2 236.5 458.0 232.0 456.1C227.5 454.2 223.1 452.6 218.6 451.0C214.1 449.4 209.7 448.0 205.2 446.6C200.7 445.3 196.2 443.9 191.8 442.9C187.3 441.8 182.8 441.0 178.3 440.3C173.9 439.6 169.4 439.1 164.9 438.8C160.4 438.4 156.0 438.2 151.5 438.2C147.0 438.1 142.5 438.1 138.1 438.4C133.6 438.6 129.1 439.1 124.6 439.7C120.2 440.4 115.7 441.3 111.2 442.3C106.7 443.3 102.3 444.5 97.8 445.9C93.3 447.3 88.8 448.8 84.4 450.7C79.9 452.6 75.4 454.9 70.9 457.4C66.5 459.9 62.0 462.7 57.5 465.8C53.1 469.0 48.5 472.4 44.3 476.3C40.1 480.1 35.4 486.5 32.4 488.9C29.4 491.4 26.3 492.8 26.2 491.0C26.2 489.3 29.5 482.8 31.9 478.4C34.3 474.1 37.5 469.5 40.6 465.0C43.7 460.5 47.0 456.0 50.6 451.6C54.2 447.2 58.1 443.0 62.1 438.7C66.1 434.5 70.3 430.1 74.5 426.1C78.7 422.2 82.9 418.7 87.2 415.2C91.6 411.7 96.2 408.5 100.7 405.3C105.1 402.2 109.6 399.2 114.1 396.3C118.6 393.5 123.0 390.8 127.5 388.3C132.0 385.8 136.5 383.6 140.9 381.3C145.4 379.1 149.9 376.8 154.4 374.9C158.8 372.9 163.3 371.2 167.8 369.5C172.3 367.9 176.7 366.4 181.2 364.9C185.7 363.4 190.2 361.9 194.6 360.5C199.1 359.2 203.6 358.1 208.1 357.1C212.5 356.1 217.0 355.3 221.5 354.5C226.0 353.8 230.4 353.1 234.9 352.6C239.4 352.0 243.8 351.6 248.3 351.3C252.8 351.0 257.3 350.9 261.7 350.9C266.2 350.9 270.7 350.9 275.2 351.1C279.6 351.3 284.1 351.7 288.6 352.2C293.1 352.7 297.5 353.4 302.0 354.0C306.5 354.7 311.0 355.4 315.4 356.3C319.9 357.2 324.4 358.2 328.9 359.4C333.3 360.6 337.8 362.0 342.3 363.4C346.8 364.9 351.2 366.4 355.7 368.1C360.2 369.8 364.7 371.7 369.1 373.6C373.6 375.6 378.1 377.7 382.6 379.8C387.0 382.0 391.5 384.2 396.0 386.6C400.4 389.1 404.9 391.7 409.4 394.4C413.9 397.1 418.3 399.8 422.8 402.6C427.3 405.5 431.8 408.5 436.2 411.7C440.7 414.8 445.3 418.2 449.7 421.5C454.1 424.8 458.4 428.0 462.6 431.4C466.9 434.9 471.0 438.5 475.1 442.1C479.3 445.7 483.5 449.4 487.8 453.1C492.0 456.9 496.1 460.5 500.5 464.6C504.8 468.7 509.4 473.1 513.9 477.5C518.4 481.8 523.1 486.5 527.2 490.6C531.4 494.7 535.0 498.3 538.8 502.0C542.6 505.8 546.5 509.7 550.0 513.1C553.4 516.5 555.9 519.0 559.5 522.4C563.1 525.8 567.2 529.7 571.4 533.5C575.6 537.3 580.4 541.5 584.8 545.1C589.1 548.7 593.1 552.0 597.5 555.3C601.8 558.7 606.3 562.2 610.7 565.4C615.2 568.5 619.7 571.4 624.2 574.3C628.6 577.1 633.1 580.0 637.6 582.4C642.1 584.9 646.5 587.0 651.0 589.1C655.5 591.1 660.0 593.0 664.4 594.7C668.9 596.4 673.4 598.1 677.9 599.5C682.3 600.9 686.8 602.2 691.3 603.1C695.7 604.1 700.2 604.7 704.7 605.3C709.2 605.9 713.6 606.5 718.1 606.7C722.6 606.9 727.1 606.9 731.5 606.6C736.0 606.3 740.5 605.7 745.0 604.7C749.4 603.8 753.9 602.5 758.4 600.9C762.9 599.3 767.4 597.3 771.8 594.9C776.2 592.4 780.8 589.5 784.8 586.2C788.9 582.8 792.6 578.9 796.1 574.9C799.6 570.8 803.0 566.2 805.9 561.8C808.8 557.4 811.3 552.9 813.5 548.4C815.8 543.9 817.5 539.5 819.3 535.0C821.1 530.5 822.7 526.0 824.2 521.6C825.6 517.1 826.9 512.6 828.0 508.1C829.1 503.7 829.9 499.2 830.8 494.7C831.6 490.3 832.3 485.8 833.0 481.3C833.6 476.8 834.1 472.4 834.6 467.9C835.0 463.4 835.4 458.9 835.6 454.5C835.9 450.0 836.0 445.5 836.0 441.0C836.1 436.6 836.2 432.1 836.0 427.6C835.8 423.1 835.4 418.7 835.0 414.2C834.7 409.7 834.3 405.2 833.9 400.8C833.5 396.3 833.2 391.8 832.6 387.3C832.1 382.9 831.3 378.4 830.6 373.9C829.9 369.4 829.0 365.0 828.1 360.5C827.3 356.0 826.5 351.6 825.5 347.1C824.5 342.6 823.3 338.1 822.1 333.7C820.9 329.2 819.7 324.7 818.4 320.2C817.1 315.8 815.8 311.3 814.5 306.8C813.1 302.3 811.7 297.9 810.1 293.4C808.5 288.9 806.7 284.4 804.9 280.0C803.1 275.5 801.2 271.0 799.3 266.5C797.4 262.1 795.5 257.6 793.4 253.1C791.3 248.6 789.1 244.2 786.8 239.7C784.6 235.2 782.1 230.7 779.6 226.3C777.1 221.8 774.6 217.3 771.9 212.8C769.2 208.4 766.4 203.9 763.5 199.4C760.6 195.0 757.6 190.5 754.5 186.0C751.4 181.5 748.1 177.1 744.7 172.6C741.2 168.1 737.3 163.6 733.7 159.2C730.0 154.8 726.5 150.5 722.6 146.2C718.7 141.9 714.5 137.4 710.5 133.3C706.4 129.1 702.0 125.1 698.1 121.4C694.3 117.7 691.2 114.7 687.2 111.1C683.2 107.6 678.4 103.6 674.0 100.0C669.6 96.3 665.1 92.5 660.6 89.1C656.1 85.6 651.6 82.5 647.2 79.3C642.7 76.2 638.2 73.0 633.7 70.0C629.3 67.1 624.8 64.1 620.3 61.4C615.9 58.7 611.4 56.2 606.9 53.6C602.4 51.1 598.0 48.6 593.5 46.2C589.0 43.8 584.5 41.5 580.1 39.4C575.6 37.2 571.1 35.2 566.6 33.3C562.2 31.3 557.7 29.3 553.2 27.5C548.7 25.6 544.3 23.8 539.8 22.1C535.3 20.4 530.8 19.0 526.4 17.5C521.9 16.0 517.4 14.5 512.9 13.1C508.5 11.7 504.0 10.3 499.5 9.1C495.0 7.8 490.6 6.8 486.1 5.7C481.6 4.6 477.1 3.4 472.7 2.6C468.2 1.8 462.3 0.8 459.4 0.8C456.5 0.8 456.6 0.3 455.3 2.4Z"/></symbol>
+      <symbol id="word" viewBox="0 0 4364 1520"><path d="M563 1385V1377L553 1386V763Q553 682 520.5 639.5Q488 597 425 597Q355 597 321.5 631.0Q288 665 288 705V780Q288 825 257.0 855.5Q226 886 177 886Q142 886 119.0 864.0Q96 842 96 798Q96 746 136.5 697.0Q177 648 256.0 616.0Q335 584 450 584Q607 584 684.5 651.5Q762 719 762 841V1366Q762 1404 775.0 1420.5Q788 1437 807 1437Q825 1437 839.0 1426.0Q853 1415 856 1391Q857 1387 858.5 1386.0Q860 1385 861 1385Q864 1385 865.0 1386.0Q866 1387 866 1391Q866 1408 850.0 1432.5Q834 1457 799.0 1476.0Q764 1495 706 1495Q632 1495 597.5 1464.5Q563 1434 563 1385ZM47 1285Q47 1179 134.5 1113.5Q222 1048 407 1048Q473 1048 516.0 1060.5Q559 1073 595 1092L588 1099Q552 1082 513.0 1072.0Q474 1062 426 1062Q344 1062 300.0 1113.0Q256 1164 256 1254Q256 1341 298.0 1388.5Q340 1436 407 1436Q453 1436 498.0 1415.0Q543 1394 573 1355L583 1361Q539 1426 462.5 1461.0Q386 1496 298 1496Q186 1496 116.5 1437.0Q47 1378 47 1285ZM1607 1447V1320V1315V693Q1607 687 1604.0 684.0Q1601 681 1594 681H1523Q1519 681 1517.0 679.0Q1515 677 1515 674Q1515 671 1517.0 669.5Q1519 668 1523 667L1786 593Q1794 591 1797.5 590.5Q1801 590 1805 590Q1810 590 1812.5 593.0Q1815 596 1815 601V1425Q1815 1437 1820.5 1444.5Q1826 1452 1839 1455L1898 1464Q1904 1465 1906.0 1467.0Q1908 1469 1908 1472Q1908 1474 1906.0 1476.0Q1904 1478 1900 1478H1634Q1621 1478 1614.0 1470.0Q1607 1462 1607 1447ZM1042 1240V693Q1042 687 1039.0 684.0Q1036 681 1029 681H957Q953 681 951.0 679.0Q949 677 949 674Q949 671 951.5 669.5Q954 668 957 667L1222 593Q1230 591 1233.5 590.5Q1237 590 1240 590Q1245 590 1247.5 593.0Q1250 596 1250 601V1219Q1250 1314 1293.5 1358.0Q1337 1402 1409 1402Q1454 1402 1500.5 1382.5Q1547 1363 1594 1320L1628 1289L1637 1299L1602 1330Q1501 1421 1421.5 1457.5Q1342 1494 1272 1494Q1172 1494 1107.0 1432.0Q1042 1370 1042 1240ZM2310 11V1425Q2310 1437 2316.0 1444.5Q2322 1452 2334 1455L2393 1464Q2399 1465 2401.0 1467.0Q2403 1469 2403 1472Q2403 1474 2401.0 1476.0Q2399 1478 2395 1478H2014Q2012 1478 2009.5 1476.0Q2007 1474 2007 1472Q2007 1469 2010.0 1466.5Q2013 1464 2020 1463L2078 1455Q2091 1452 2096.5 1444.5Q2102 1437 2102 1426V103Q2102 97 2099.5 94.0Q2097 91 2090 91H2018Q2014 91 2012.0 89.0Q2010 87 2010 84Q2010 81 2012.5 79.5Q2015 78 2018 77L2282 3Q2290 1 2293.5 0.5Q2297 0 2300 0Q2305 0 2307.5 3.0Q2310 6 2310 11ZM2801 599V1425Q2801 1437 2807.0 1444.5Q2813 1452 2825 1455L2884 1464Q2894 1466 2894 1472Q2894 1478 2886 1478H2505Q2503 1478 2500.5 1476.0Q2498 1474 2498 1472Q2498 1470 2500.0 1468.0Q2502 1466 2507 1465L2569 1455Q2582 1452 2587.5 1444.5Q2593 1437 2593 1426V691Q2593 685 2590.5 682.0Q2588 679 2581 679H2509Q2505 679 2503.0 677.0Q2501 675 2501 672Q2501 669 2503.5 667.5Q2506 666 2509 665L2773 591Q2781 589 2784.5 588.5Q2788 588 2791 588Q2796 588 2798.5 591.0Q2801 594 2801 599ZM2784 789 2775 780 2810 748Q2907 661 2977.0 623.0Q3047 585 3110 585Q3202 585 3253.5 644.0Q3305 703 3321 827L3398 1418Q3400 1434 3407.0 1444.0Q3414 1454 3430 1457L3481 1465Q3486 1466 3488.0 1467.5Q3490 1469 3490 1472Q3490 1474 3488.0 1476.0Q3486 1478 3482 1478H3094Q3085 1478 3085 1472Q3085 1467 3096 1464L3157 1455Q3174 1452 3180.5 1442.0Q3187 1432 3185 1418L3116 848Q3104 759 3073.5 718.0Q3043 677 2982 677Q2942 677 2903.0 697.0Q2864 717 2818 759ZM4328 956Q4328 964 4322.5 969.0Q4317 974 4307 974H3689V958H4104Q4120 958 4120 940Q4120 768 4069.5 683.5Q4019 599 3945 599Q3881 599 3835.5 640.0Q3790 681 3765.5 762.5Q3741 844 3741 965Q3741 1171 3828.0 1276.0Q3915 1381 4055 1381Q4157 1381 4228.5 1323.0Q4300 1265 4311 1166Q4311 1162 4313.0 1160.5Q4315 1159 4316 1159Q4318 1159 4320.0 1161.0Q4322 1163 4322 1168Q4315 1263 4265.0 1337.5Q4215 1412 4134.0 1455.0Q4053 1498 3952 1498Q3832 1498 3741.0 1444.0Q3650 1390 3599.0 1291.0Q3548 1192 3548 1060Q3548 920 3600.0 812.5Q3652 705 3747.0 644.5Q3842 584 3970 584Q4079 584 4159.0 632.0Q4239 680 4283.5 764.0Q4328 848 4328 956Z"/></symbol>
+    </defs>
+  </svg>
 
-  <!-- La même barre sur les trois pages ; aria-current marque la page
-       ouverte, pour l'œil comme pour le lecteur d'écran. -->
+  <!-- La même barre que sur les autres pages, aux couleurs d'Aulne. -->
   <nav class="barre" aria-label="Navigation">
     <a href="/">Accueil</a>
     <a href="/mrr">MRR</a>
     <a href="/aulne" aria-current="page">Aulne</a>
   </nav>
 
-  <!-- TOUT LE TEXTE DE CETTE PAGE VIENT DE « Aulne — Plateforme de marque »
-       (la plateforme de marque d'Aulne), reprise mot pour mot ou presque : rien n'y
-       est inventé. Il vouvoie, comme la plateforme le demande. La promesse
-       et la signature y sont encore « à valider » : à changer ici aussi si
-       elles bougent. Ni prix ni contact : la plateforme ne les fixe pas
-       encore, et un lien deviné tombe à côté. -->
-  <main class="contenu">
-    <header class="ouverture">
-      <span class="surtitre">Aulne</span>
+  <!-- TOUT LE TEXTE vient de la plateforme de marque d'Aulne, repris mot
+       pour mot ou presque : rien n'y est inventé. Il vouvoie, comme elle le
+       demande. La promesse et la signature y sont encore « à valider » : à
+       changer ici aussi si elles bougent. Ni prix ni contact : la plateforme
+       ne les fixe pas encore, et un lien deviné tombe à côté. -->
+  <header class="couverture">
+    <img class="cernes" src="/aulne/assets/cernes.svg" alt="" aria-hidden="true" />
+    <div class="cadre">
+      <div class="lock" role="img" aria-label="aulne"><svg class="e" viewBox="0 0 836 1000" aria-hidden="true"><use href="#emb"/></svg><svg class="w" viewBox="0 0 4364 1520" aria-hidden="true"><use href="#word"/></svg></div>
       <h1>Des racines solides <em>pour votre marque.</em></h1>
       <p class="chapeau">
         Un accompagnement en branding, graphisme et identité visuelle, jusqu'aux
         pages de vente et sites internet — pour offrir à vos propres clients une
         vraie expérience visuelle.
       </p>
-    </header>
-
-    <section class="bloc">
-      <span class="surtitre">Pour qui</span>
-      <h2>Entreprises et porteurs de projet</h2>
-      <p>
-        TPE, PME, commerçants, indépendants, et particuliers qui lancent un projet
-        ou portent leur marque personnelle.
-      </p>
-    </section>
-
-    <section class="bloc">
-      <span class="surtitre">Ce qu'Aulne propose</span>
-      <h2>De la stratégie à la page de vente</h2>
-      <p>Un accompagnement de bout en bout plutôt que des livrables isolés.</p>
-      <div class="grille">
-      <article class="carte">
-        <span class="num">01</span>
-        <h3>Stratégie de marque</h3>
-        <p>Positionnement, cible, ton, nom ou signature.</p>
-      </article>
-      <article class="carte">
-        <span class="num">02</span>
-        <h3>Identité visuelle</h3>
-        <p>Logo, palette, typographies, charte graphique.</p>
-      </article>
-      <article class="carte">
-        <span class="num">03</span>
-        <h3>Graphisme</h3>
-        <p>Supports print et réseaux sociaux, packaging, visuels de campagne.</p>
-      </article>
-      <article class="carte">
-        <span class="num">04</span>
-        <h3>Pages de vente et sites</h3>
-        <p>Page de vente, site vitrine, mise en ligne.</p>
-      </article>
-      <article class="carte">
-        <span class="num">05</span>
-        <h3>Accompagnement</h3>
-        <p>Refonte d'une marque existante, suivi après lancement.</p>
-      </article>
-      </div>
-    </section>
-
-    <div class="bandeau">
-      <p>Un seul interlocuteur pour la stratégie, le visuel et le web, au lieu de trois prestataires qui ne se parlent pas.</p>
-      <p class="signature">Aulne. Faire grandir votre image.</p>
     </div>
+  </header>
 
-    <section class="bloc">
-      <span class="surtitre">Ce qui guide le travail</span>
-      <h2>Quatre valeurs</h2>
-      <div class="grille deux">
-      <article class="carte">
-        <h3>Ancrage</h3>
-        <p>Des marques pensées pour durer, pas pour une tendance.</p>
-      </article>
-      <article class="carte">
-        <h3>Clarté</h3>
-        <p>Étapes, délais et prix annoncés dès le départ.</p>
-      </article>
-      <article class="carte">
-        <h3>Soin</h3>
-        <p>Chaque détail vérifié, du pixel à la phrase.</p>
-      </article>
-      <article class="carte">
-        <h3>Croissance</h3>
-        <p>Des visuels et des pages conçus pour faire vendre.</p>
-      </article>
+  <main>
+    <section class="bande">
+      <div class="cadre chapitre">
+        <span class="num">01</span>
+        <div>
+          <span class="etiquette">Pour qui</span>
+          <h2>Entreprises et <em>porteurs de projet</em></h2>
+          <p class="texte">
+            TPE, PME, commerçants, indépendants, et particuliers qui lancent un
+            projet ou portent leur marque personnelle.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="bloc">
-      <span class="surtitre">Le nom</span>
-      <h2>Un arbre des rives</h2>
-      <p>
-        L'aulne pousse les pieds dans l'eau, fixe les berges et enrichit le sol
-        où il s'installe. Son bois, imputrescible sous l'eau, porte encore les
-        pilotis de Venise.
-      </p>
+    <section class="bande beige">
+      <div class="cadre">
+        <div class="chapitre">
+          <span class="num">02</span>
+          <div>
+            <span class="etiquette">Ce qu'Aulne propose</span>
+            <h2>De la stratégie à <em>la page de vente</em></h2>
+            <p class="texte">Un accompagnement de bout en bout, plutôt que des livrables isolés.</p>
+          </div>
+        </div>
+        <div class="offres">
+        <div class="offre">
+          <span class="n">01</span>
+          <h3>Stratégie de marque</h3>
+          <p>Positionnement, cible, ton, nom ou signature.</p>
+        </div>
+        <div class="offre">
+          <span class="n">02</span>
+          <h3>Identité visuelle</h3>
+          <p>Logo, palette, typographies, charte graphique.</p>
+        </div>
+        <div class="offre">
+          <span class="n">03</span>
+          <h3>Graphisme</h3>
+          <p>Supports print et réseaux sociaux, packaging, visuels de campagne.</p>
+        </div>
+        <div class="offre">
+          <span class="n">04</span>
+          <h3>Pages de vente et sites</h3>
+          <p>Page de vente, site vitrine, mise en ligne.</p>
+        </div>
+        <div class="offre">
+          <span class="n">05</span>
+          <h3>Accompagnement</h3>
+          <p>Refonte d'une marque existante, suivi après lancement.</p>
+        </div>
+        </div>
+      </div>
     </section>
 
-    <p class="fin">matteoth.com</p>
+    <section class="bande marine">
+      <div class="cadre chapitre">
+        <span class="num">03</span>
+        <div>
+          <span class="etiquette">La différence</span>
+          <p class="difference">Un seul interlocuteur pour la stratégie, le visuel et le web, <em>au lieu de trois prestataires qui ne se parlent pas.</em></p>
+          <p class="signature">Aulne. Faire grandir votre image.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bande">
+      <div class="cadre">
+        <div class="chapitre">
+          <span class="num">04</span>
+          <div>
+            <span class="etiquette">Ce qui guide le travail</span>
+            <h2>Quatre <em>valeurs</em></h2>
+          </div>
+        </div>
+        <div class="valeurs">
+        <div class="valeur">
+          <span class="vn">01</span>
+          <h3>Ancrage</h3>
+          <p>Des marques pensées pour durer, pas pour une tendance.</p>
+        </div>
+        <div class="valeur">
+          <span class="vn">02</span>
+          <h3>Clarté</h3>
+          <p>Étapes, délais et prix annoncés dès le départ.</p>
+        </div>
+        <div class="valeur">
+          <span class="vn">03</span>
+          <h3>Soin</h3>
+          <p>Chaque détail vérifié, du pixel à la phrase.</p>
+        </div>
+        <div class="valeur">
+          <span class="vn">04</span>
+          <h3>Croissance</h3>
+          <p>Des visuels et des pages conçus pour faire vendre.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bande beige">
+      <div class="cadre chapitre">
+        <span class="num">05</span>
+        <div>
+          <span class="etiquette">Le nom</span>
+          <h2>Un arbre <em>des rives</em></h2>
+          <p class="texte">
+            L'aulne pousse les pieds dans l'eau, fixe les berges et enrichit le sol
+            où il s'installe. Son bois, imputrescible sous l'eau, porte encore les
+            pilotis de Venise.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="pied">
+    <div class="cadre">
+      <div class="lock" role="img" aria-label="aulne"><svg class="e" viewBox="0 0 836 1000" aria-hidden="true"><use href="#emb"/></svg><svg class="w" viewBox="0 0 4364 1520" aria-hidden="true"><use href="#word"/></svg></div>
+      <p>matteoth.com</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -9,8 +9,11 @@ reprise de simonbsns.com.
 index.html          l'accueil : la photo et « Le site arrive. »
 mrr/index.html      LE MRR : en attente du contenu (« La page MRR arrive. »)
 aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
-                    de la plateforme de marque d'Aulne
-assets/site.css     la feuille COMMUNE aux trois pages
+                    de la plateforme de marque d'Aulne, DANS LA CHARTE D'AULNE
+aulne/aulne.css     la charte d'Aulne : Crème, Marine, Bleu ; Unbounded, Figtree
+aulne/fonts/        Unbounded et Figtree, servies par le site
+aulne/assets/       le motif des cernes, tiré du livre de marque
+assets/site.css     la feuille commune à l'accueil et à /mrr
 assets/fonts.css    General Sans et Satoshi, servies par le site
 assets/profil.jpg   la photo de profil de l'accueil
 assets/favicon-*.png  favicons ronds (32, 192, 512)
@@ -27,7 +30,10 @@ Trois pages, reliées par la même barre : **Accueil · MRR · Aulne**.
   et une ligne.
 - **MRR** attend son contenu — offres, prix, liens d'achat. Rien d'inventé ne
   part en ligne.
-- **Aulne** reprend la plateforme de marque d'Aulne : ce qu'est Aulne, pour
+- **Aulne** est dans la DA d'Aulne, pas dans celle du site : c'est une
+  marque à part, avec son livre de marque. Le logo (emblème + mot) est
+  recopié tel quel de la « Charte Aulne », jamais recomposé. Le texte reprend
+  la plateforme de marque : ce qu'est Aulne, pour
   qui, les cinq offres, la différence, les valeurs, le nom. Ni prix ni
   contact, que la plateforme ne fixe pas encore. Promesse et signature y
   sont « à valider » : les changer ici aussi si elles bougent.
