@@ -353,7 +353,21 @@ body {
   font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--bleu-pale);
   background: rgba(22, 49, 131, 0.4); border: 1px solid rgba(115, 144, 231, 0.25);
 }
-.accomp.aulne { border-color: rgba(201, 182, 148, 0.35); }
+/* Trois fonds différents : MRR garde le bleu nuit du site, 1.1 passe en
+   bleu vif plein, Aulne prend le marine de sa charte. */
+.accomp.un-un {
+  background: linear-gradient(160deg, #3a66f0 0%, #224cc9 45%, #163183 100%);
+  border-color: rgba(176, 193, 242, 0.55);
+  box-shadow: 0 24px 60px -28px rgba(34, 76, 201, 0.9);
+}
+.accomp.un-un .accomp-tag { color: #dfe7ff; }
+.accomp.un-un .accomp-bientot { color: #163183; background: #f5f7ff; border-color: transparent; }
+.accomp.aulne {
+  background:
+    radial-gradient(60% 70% at 85% 100%, rgba(201, 182, 148, 0.22), transparent 70%),
+    linear-gradient(160deg, #111c30 0%, #1c2d4a 55%, #2c4468 100%);
+  border-color: rgba(201, 182, 148, 0.35);
+}
 .accomp.aulne .accomp-tag { color: #c9b694; }
 .accomp.aulne h2 { color: #f4eee3; }
 .accomp.aulne .accomp-bientot { color: #1c2d4a; background: #c9b694; border-color: transparent; }
