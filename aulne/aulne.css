@@ -149,6 +149,13 @@ h1 {
   font-family: "Unbounded", "Arial Black", sans-serif; font-weight: 900;
   font-size: clamp(1.8rem, 3vw, 2.3rem); letter-spacing: -0.05em; line-height: 1; color: var(--creme);
 }
+/* Le visuel de l'offre, en tête de carte, bord à bord. Le gabarit 16:9 est
+   réservé par width/height : la carte ne saute pas quand l'image arrive. */
+.presta { overflow: hidden; }
+.presta-visuel {
+  display: block; width: calc(100% + 44px); max-width: none; height: auto; aspect-ratio: 16 / 9;
+  margin: -24px -22px 0; object-fit: cover;
+}
 /* Le pack réunit les deux autres : il prend le sable, seule carte pleine. */
 .presta.pack { background: var(--sable); border-color: transparent; }
 .presta.pack h3, .presta.pack .presta-prix { color: var(--marine); }
