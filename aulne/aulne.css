@@ -30,6 +30,10 @@
   --creme: #F4EEE3;
 }
 
+/* Le fond du DOCUMENT : c'est lui que Safari montre quand on tire la page
+   au-delà de son bord. La nuit du haut du dégradé, pour le prolonger. */
+html { background-color: #111C30; }
+
 /* Jamais de fond uni : la nuit monte vers le marine puis l'indigo. */
 body {
   min-height: 100svh;

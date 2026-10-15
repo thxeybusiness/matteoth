@@ -23,7 +23,12 @@
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 
-html { -webkit-text-size-adjust: 100%; }
+/* Le fond du DOCUMENT, et pas seulement celui du body : c'est lui que
+   Safari montre quand on tire la page au-delà de son bord (le geste
+   « actualiser »). Sans couleur ici, le dégradé du body se répétait et
+   laissait paraître une bande claire au-dessus de l'en-tête. Le bleu nuit
+   du haut de la page, pour que le débord le prolonge. */
+html { -webkit-text-size-adjust: 100%; background-color: #040817; }
 /* Jamais de fond uni : le noir descend vers le bleu nuit. */
 body {
   min-height: 100svh;
