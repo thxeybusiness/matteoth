@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <title>Accompagnement — Matteo</title>
-  <meta name="description" content="Mes accompagnements : MRR, 1.1 et Aulne." />
+  <meta name="description" content="Mes accompagnements : MRR (inclus dans JDS et CLM), 1.1 à 200 €, Aulne à 300 €." />
   <link rel="canonical" href="https://matteoth.com/accompagnement" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matteoth.com/accompagnement" />
   <meta property="og:title" content="Accompagnement — Matteo" />
-  <meta property="og:description" content="Mes accompagnements : MRR, 1.1 et Aulne." />
+  <meta property="og:description" content="Mes accompagnements : MRR (inclus dans JDS et CLM), 1.1 à 200 €, Aulne à 300 €." />
   <meta property="og:locale" content="fr_FR" />
 
   <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
@@ -28,7 +28,7 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=19" />
+  <link rel="stylesheet" href="/assets/site.css?v=20" />
 </head>
 
 <body>
@@ -53,30 +53,67 @@
       <p class="accroche">Trois façons d'avancer avec moi.</p>
     </header>
 
-    <!-- LES TROIS ACCOMPAGNEMENTS, nommés par Matteo. Leur contenu se
-         configure avec lui : chaque carte dit « Les détails arrivent »
-         plutôt que d'inventer un prix, une durée ou un nombre d'appels.
+    <!-- LES TROIS ACCOMPAGNEMENTS, nommés et chiffrés par Matteo (MRR inclus
+         dans les formations, 1.1 à 200 €, Aulne à 300 €). Leur contenu se
+         liste avec lui dans « En savoir plus » : d'ici là le menu dit « La
+         liste arrive » plutôt que d'inventer une durée ou un nombre d'appels.
          « 1.1 » est écrit tel qu'il l'a donné. Aulne prend le sable de sa
          charte, comme sur l'accueil ; 1.1 est en violet profond : trois fonds,
          trois accompagnements qu'on ne confond pas. -->
     <section class="accomps" aria-label="Les accompagnements">
-      <article class="accomp ">
+      <article class="accomp">
         <span class="accomp-tag">Accompagnement</span>
         <h2>MRR</h2>
         <!-- Consigne de Matteo : l'accompagnement MRR ne s'achète pas à part,
-             il est inclus dans JDS et CLM. Le lien mène à leurs cartes. -->
-        <p class="accomp-inclus">Inclus dans les formations <strong>JDS &amp; CLM</strong></p>
-        <a class="accomp-lien" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a>
+             il est inclus dans JDS et CLM — c'est son « prix ». -->
+        <p class="accomp-prix petit">Inclus dans les formations <strong>JDS &amp; CLM</strong></p>
+        <!-- Le menu qui se déroule : un <details> natif, qui s'ouvre au
+             clavier et se lit au lecteur d'écran sans une ligne de script. La
+             liste se remplit avec Matteo ; d'ici là, elle le dit. -->
+        <details class="accomp-plus">
+          <summary>En savoir plus</summary>
+          <div class="accomp-dedans">
+            <p class="accomp-dedans-titre">Ce qu'il y a dedans</p>
+            <ul class="accomp-liste">
+              <li class="a-venir">La liste arrive.</li>
+            </ul>
+            <a class="accomp-lien" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </details>
       </article>
       <article class="accomp un-un">
         <span class="accomp-tag">Accompagnement</span>
         <h2>1.1</h2>
-        <p class="accomp-bientot">Les détails arrivent.</p>
+        <p class="accomp-prix">200&nbsp;€</p>
+        <!-- Le menu qui se déroule : un <details> natif, qui s'ouvre au
+             clavier et se lit au lecteur d'écran sans une ligne de script. La
+             liste se remplit avec Matteo ; d'ici là, elle le dit. -->
+        <details class="accomp-plus">
+          <summary>En savoir plus</summary>
+          <div class="accomp-dedans">
+            <p class="accomp-dedans-titre">Ce qu'il y a dedans</p>
+            <ul class="accomp-liste">
+              <li class="a-venir">La liste arrive.</li>
+            </ul>
+          </div>
+        </details>
       </article>
       <article class="accomp aulne">
         <span class="accomp-tag">Accompagnement</span>
         <h2>Aulne</h2>
-        <p class="accomp-bientot">Les détails arrivent.</p>
+        <p class="accomp-prix">300&nbsp;€</p>
+        <!-- Le menu qui se déroule : un <details> natif, qui s'ouvre au
+             clavier et se lit au lecteur d'écran sans une ligne de script. La
+             liste se remplit avec Matteo ; d'ici là, elle le dit. -->
+        <details class="accomp-plus">
+          <summary>En savoir plus</summary>
+          <div class="accomp-dedans">
+            <p class="accomp-dedans-titre">Ce qu'il y a dedans</p>
+            <ul class="accomp-liste">
+              <li class="a-venir">La liste arrive.</li>
+            </ul>
+          </div>
+        </details>
       </article>
     </section>
 
