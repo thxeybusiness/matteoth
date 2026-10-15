@@ -146,6 +146,7 @@ h1 {
 }
 .presta h3 { font-weight: 700; font-size: 1.05rem; line-height: 1.35; letter-spacing: 0.01em; color: var(--creme); }
 .presta-prix {
+  margin-top: auto;
   font-family: "Unbounded", "Arial Black", sans-serif; font-weight: 900;
   font-size: clamp(1.8rem, 3vw, 2.3rem); letter-spacing: -0.05em; line-height: 1; color: var(--creme);
 }
@@ -156,6 +157,16 @@ h1 {
   display: block; width: calc(100% + 44px); max-width: none; height: auto; aspect-ratio: 16 / 9;
   margin: -24px -22px 0; object-fit: cover;
 }
+/* Le bouton d'achat, sable plein, sous le prix. 48 px de haut. */
+.presta-acheter {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+  margin-top: -6px; padding: 0 22px; border-radius: 999px; text-decoration: none;
+  font-weight: 700; font-size: 0.98rem; color: var(--marine); background: var(--sable);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.presta-acheter:hover { transform: translateY(-1px); background: #d6c6a8; }
+/* Sur la carte sable du pack, le bouton passe au marine. */
+.presta.pack .presta-acheter { color: var(--creme); background: var(--marine); }
 /* Le pack réunit les deux autres : il prend le sable, seule carte pleine. */
 .presta.pack { background: var(--sable); border-color: transparent; }
 .presta.pack h3, .presta.pack .presta-prix { color: var(--marine); }
