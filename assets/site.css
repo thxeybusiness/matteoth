@@ -355,14 +355,28 @@ body {
   background: rgba(22, 49, 131, 0.4); border: 1px solid rgba(115, 144, 231, 0.25);
 }
 /* Trois fonds différents : MRR garde le bleu nuit du site, 1.1 passe en
-   bleu vif plein, Aulne prend le marine de sa charte. */
+   violet profond, Aulne prend le marine de sa charte. */
+/* 1.1 en violet profond, choisi par Matteo : le bleu vif d'abord essayé
+   jurait avec le reste de la page. Le violet reste dans les tons froids
+   du site et ne se confond ni avec MRR ni avec Aulne. */
 .accomp.un-un {
-  background: linear-gradient(160deg, #3a66f0 0%, #224cc9 45%, #163183 100%);
-  border-color: rgba(176, 193, 242, 0.55);
-  box-shadow: 0 24px 60px -28px rgba(34, 76, 201, 0.9);
+  background:
+    radial-gradient(70% 80% at 15% 0%, rgba(139, 92, 246, 0.35), transparent 70%),
+    linear-gradient(160deg, #2a1a6b 0%, #1b1050 50%, #120a33 100%);
+  border-color: rgba(167, 139, 250, 0.4);
 }
-.accomp.un-un .accomp-tag { color: #dfe7ff; }
-.accomp.un-un .accomp-bientot { color: #163183; background: #f5f7ff; border-color: transparent; }
+.accomp.un-un .accomp-tag { color: #c4b5fd; }
+.accomp.un-un .accomp-bientot { color: #ede9fe; background: rgba(139, 92, 246, 0.35); border-color: rgba(196, 181, 253, 0.4); }
+.accomp-inclus { margin-top: 16px; font-size: 0.98rem; color: var(--ink-soft); }
+.accomp-inclus strong { font-family: "General Sans", sans-serif; font-weight: 700; color: var(--ink); }
+.accomp-lien {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 14px; padding: 0 18px;
+  border-radius: 999px; text-decoration: none;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.9rem; color: #fff;
+  background: linear-gradient(180deg, var(--bleu-vif), var(--bleu) 55%, var(--bleu-nuit));
+  border: 1px solid rgba(176, 193, 242, 0.4);
+}
+.accomp-lien:hover { filter: brightness(1.1); }
 .accomp.aulne {
   background:
     radial-gradient(60% 70% at 85% 100%, rgba(201, 182, 148, 0.22), transparent 70%),
