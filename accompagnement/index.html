@@ -66,7 +66,9 @@
         <h2>MRR</h2>
         <!-- Consigne de Matteo : l'accompagnement MRR ne s'achète pas à part,
              il est inclus dans JDS et CLM — c'est son « prix ». -->
-        <p class="accomp-prix petit">Inclus dans les formations <strong>JDS &amp; CLM</strong></p>
+        <!-- Le texte est dans un <span> : la case du prix est en flex, et un
+             flex colle le texte à la balise <strong> en mangeant l'espace. -->
+        <p class="accomp-prix petit"><span>Inclus dans les formations <strong>JDS &amp; CLM</strong></span></p>
         <!-- Le menu qui se déroule : un <details> natif, qui s'ouvre au
              clavier et se lit au lecteur d'écran sans une ligne de script. La
              liste se remplit avec Matteo ; d'ici là, elle le dit. -->
@@ -74,7 +76,12 @@
           <summary>Ce qu'il y a dedans</summary>
           <div class="accomp-dedans">
             <ul class="accomp-liste">
-              <li class="a-venir">La liste arrive.</li>
+              <li>Structurer tes comptes TikTok et Instagram, avec le branding</li>
+              <li>Les premières techniques de prospection</li>
+              <li>La création de contenu</li>
+              <li>Le montage vidéo</li>
+              <li>Le closing</li>
+              <li>Objectif : faire tes premiers résultats réguliers</li>
             </ul>
             <a class="accomp-lien" href="/mrr">Voir les formations <span aria-hidden="true">&rarr;</span></a>
           </div>
@@ -96,6 +103,8 @@
               <li>Structurer tes projets</li>
               <li>Être encadré, avec des plannings clairs</li>
               <li>Des appels personnalisés ensemble</li>
+              <li>Avancer dans la création de contenu, le branding, le montage vidéo, la prospection et le closing</li>
+              <li>Objectif : faire des résultats réguliers</li>
             </ul>
           </div>
         </details>
