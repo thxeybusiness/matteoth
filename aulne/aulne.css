@@ -136,12 +136,22 @@ h1 {
   text-transform: uppercase; letter-spacing: -0.05em; line-height: 1;
   font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--creme);
 }
-.prestas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 28px; }
-.presta-vide {
-  grid-column: 1 / -1; justify-self: center;
-  padding: 10px 18px; border-radius: 999px; font-size: 0.95rem;
-  color: var(--marine); background: var(--sable);
+.prestas { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 28px; }
+/* Une carte par prestation : le nom, puis le prix en gros, poussé en bas
+   pour que les trois prix s'alignent quelle que soit la longueur du nom. */
+.presta {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+  padding: 24px 22px; border-radius: 20px; text-align: left;
+  background: rgba(244, 238, 227, 0.06); border: 1px solid rgba(244, 238, 227, 0.2);
 }
+.presta h3 { font-weight: 700; font-size: 1.05rem; line-height: 1.35; letter-spacing: 0.01em; color: var(--creme); }
+.presta-prix {
+  font-family: "Unbounded", "Arial Black", sans-serif; font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 2.3rem); letter-spacing: -0.05em; line-height: 1; color: var(--creme);
+}
+/* Le pack réunit les deux autres : il prend le sable, seule carte pleine. */
+.presta.pack { background: var(--sable); border-color: transparent; }
+.presta.pack h3, .presta.pack .presta-prix { color: var(--marine); }
 
 @keyframes reflet { to { background-position: -250% center; } }
 @keyframes monte { from { opacity: 0; transform: translateY(14px); } }
