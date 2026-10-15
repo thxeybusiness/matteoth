@@ -129,6 +129,20 @@ h1 {
   background: rgba(244, 238, 227, 0.06);
 }
 
+/* ---------- Prestations ---------- */
+.prestations { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 24px 20px 80px; text-align: center; }
+.prestations h2 {
+  font-family: "Unbounded", "Arial Black", sans-serif; font-weight: 900;
+  text-transform: uppercase; letter-spacing: -0.05em; line-height: 1;
+  font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--creme);
+}
+.prestas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 28px; }
+.presta-vide {
+  grid-column: 1 / -1; justify-self: center;
+  padding: 10px 18px; border-radius: 999px; font-size: 0.95rem;
+  color: var(--marine); background: var(--sable);
+}
+
 @keyframes reflet { to { background-position: -250% center; } }
 @keyframes monte { from { opacity: 0; transform: translateY(14px); } }
 
