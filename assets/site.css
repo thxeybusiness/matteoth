@@ -391,7 +391,7 @@ body {
 .accomp-prix.petit { font-size: 1rem; font-weight: 500; letter-spacing: -0.01em; line-height: 1.4; color: var(--ink-soft); }
 .accomp-prix.petit strong { font-weight: 700; color: var(--ink); }
 
-/* « En savoir plus » : le résumé est un vrai bouton de 44 px, et son
+/* « Ce qu'il y a dedans » : le résumé est un vrai bouton de 44 px, et son
    chevron tourne quand le menu est ouvert. */
 .accomp-plus { margin-top: 18px; }
 .accomp-plus summary {
@@ -408,7 +408,6 @@ body {
 }
 .accomp-plus[open] summary::after { transform: rotate(-135deg); margin-top: 3px; }
 .accomp-dedans { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(245, 247, 255, 0.14); }
-.accomp-dedans-titre { font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink-soft); }
 .accomp-liste { margin-top: 10px; list-style: none; display: grid; gap: 8px; }
 .accomp-liste li { position: relative; padding-left: 18px; font-size: 0.95rem; }
 .accomp-liste li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 7px; height: 7px; border-radius: 50%; background: var(--bleu-clair); }
