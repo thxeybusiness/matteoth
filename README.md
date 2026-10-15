@@ -15,7 +15,7 @@ aulne/aulne.css     la charte d'Aulne : Crème, Marine, Bleu ; Unbounded, Figtre
 aulne/fonts/        Unbounded et Figtree, servies par le site
 aulne/avant-apres.* la section avant/après fournie par Thomas (Nero)
 aulne/assets/       les images des avant/après : Nero, TH Coaching, Lonvys
-accompagnement/     L'ACCOMPAGNEMENT : MRR, 1.1 et Aulne — contenu à venir
+accompagnement/     L'ACCOMPAGNEMENT : MRR, 1:1 et Aulne — contenu à venir
 assets/site.css     la feuille commune à l'accueil et à /mrr : même exigence
                     que la page Aulne (halos, titres gras et serrés), en noir
                     et bleu, General Sans et Satoshi
@@ -30,7 +30,7 @@ vercel.json         URL propres + en-têtes de sécurité et de cache
 ```
 
 Quatre pages, reliées par la même barre : **Accueil · MRR · Aulne ·
-Accompagnement**. La page Accompagnement nomme les trois (MRR, 1.1, Aulne) ;
+Accompagnement**. La page Accompagnement nomme les trois (MRR, 1:1, Aulne) ;
 leur contenu se configure avec Matteo, d'ici là « Les détails arrivent ».
 
 - **Accueil** : la photo et « Mes business », puis les deux business l'un
