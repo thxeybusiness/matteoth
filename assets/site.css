@@ -335,6 +335,7 @@ body {
 }
 .business .cadeau { margin-top: 28px; }
 .business .cadeau + .suite { margin-top: 20px; }
+.formation .offert.vide { visibility: hidden; }
 .formation .offert { margin-top: 8px; font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--bleu-clair); }
 
 /* ============================================================

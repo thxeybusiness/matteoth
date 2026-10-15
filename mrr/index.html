@@ -28,7 +28,7 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=16" />
+  <link rel="stylesheet" href="/assets/site.css?v=17" />
 </head>
 
 <body>
@@ -53,10 +53,10 @@
     <header class="ouverture">
       <h1 class="titre">Trois<br />formations</h1>
       <p class="accroche">selon ton budget.</p>
-      <!-- Consigne de Matteo : chaque formation est livrée avec un
-           accompagnement offert. Dit une fois ici, et rappelé sur chaque
-           carte, sous le prix, là où l'on décide. -->
-      <p class="cadeau"><span class="cadeau-ico" aria-hidden="true">+</span>Accompagnement offert avec chaque formation</p>
+      <!-- Consigne de Matteo : JDS et CLM sont livrées avec un
+           accompagnement offert, pas CFS. Dit une fois ici, et rappelé sur
+           les deux cartes concernées, sous le prix, là où l'on décide. -->
+      <p class="cadeau"><span class="cadeau-ico" aria-hidden="true">+</span>Accompagnement offert avec JDS et CLM</p>
     </header>
 
     <!-- LES TROIS FORMATIONS, TELLES QUE MATTEO LES A DONNÉES : nom, ce
@@ -78,7 +78,10 @@
         <h2>CFS</h2>
         <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent commencer un business en ligne avec un petit budget.</p>
         <p class="prix">35&nbsp;€</p>
-        <p class="offert">+ accompagnement offert</p>
+        <!-- CFS n'a PAS d'accompagnement (consigne de Matteo). La ligne reste,
+             vide et masquée : sans elle, le prix de CFS descendrait d'un cran
+             par rapport à ceux de JDS et CLM. -->
+        <p class="offert vide" aria-hidden="true">&nbsp;</p>
         <div class="deux-fois"><span>Paiement en une fois</span></div>
         <a class="acheter" href="https://mtodigit.store/shop/3e719a63-a5ea-4c37-821d-4d779d9768d3" target="_blank" rel="noopener">Acheter CFS <span aria-hidden="true">&rarr;</span></a>
       </div></article>
