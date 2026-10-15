@@ -30,8 +30,9 @@ vercel.json         URL propres + en-têtes de sécurité et de cache
 
 Trois pages, reliées par la même barre : **Accueil · MRR · Aulne**.
 
-- **Accueil** : la photo, « Mes business » et une carte par business — MRR
-  et Aulne —, puis « Le business », le MRR en trois étapes.
+- **Accueil** : la photo et « Mes business », puis les deux business l'un
+  sous l'autre : le MRR en trois étapes (DA du site), puis Aulne dans la DA
+  d'Aulne (fond marine, Unbounded, logo de la charte).
 - **MRR** : trois formations, telles que Matteo les a données.
 
   | Formation | Pour qui | En une fois | En deux fois |
