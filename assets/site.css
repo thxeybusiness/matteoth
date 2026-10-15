@@ -337,6 +337,30 @@ body {
 .business .cadeau + .suite { margin-top: 20px; }
 .formation .offert { margin-top: 8px; font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--bleu-clair); }
 
+/* ============================================================
+   ACCOMPAGNEMENT — les trois accompagnements, contenu à venir
+   ============================================================ */
+.accomps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: clamp(36px, 5vw, 56px); }
+.accomp {
+  border-radius: 24px; padding: 26px 24px 28px;
+  background: linear-gradient(180deg, rgba(13, 30, 77, 0.6), rgba(5, 10, 28, 0.6));
+  border: 1px solid rgba(115, 144, 231, 0.22);
+}
+.accomp-tag { font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--bleu-clair); }
+.accomp h2 { margin-top: 10px; font-family: "General Sans", sans-serif; font-weight: 700; font-size: clamp(1.9rem, 3vw, 2.4rem); letter-spacing: -0.05em; line-height: 0.95; }
+.accomp-bientot {
+  display: inline-block; margin-top: 18px; padding: 7px 13px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--bleu-pale);
+  background: rgba(22, 49, 131, 0.4); border: 1px solid rgba(115, 144, 231, 0.25);
+}
+.accomp.aulne { border-color: rgba(201, 182, 148, 0.35); }
+.accomp.aulne .accomp-tag { color: #c9b694; }
+.accomp.aulne h2 { color: #f4eee3; }
+.accomp.aulne .accomp-bientot { color: #1c2d4a; background: #c9b694; border-color: transparent; }
+@media (max-width: 860px) {
+  .accomps { grid-template-columns: minmax(0, 1fr); max-width: 460px; margin-left: auto; margin-right: auto; }
+}
+
 @media (max-width: 860px) {
   .formations { grid-template-columns: minmax(0, 1fr); max-width: 460px; margin-left: auto; margin-right: auto; }
 }

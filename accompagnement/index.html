@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Le zoom reste AUTORISÉ : couper le pincement prive de la page ceux
+       qui en ont besoin pour la lire. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Accompagnement — Matteo</title>
+  <meta name="description" content="Mes accompagnements : MRR, 1.1 et Aulne." />
+  <link rel="canonical" href="https://matteoth.com/accompagnement" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matteoth.com/accompagnement" />
+  <meta property="og:title" content="Accompagnement — Matteo" />
+  <meta property="og:description" content="Mes accompagnements : MRR, 1.1 et Aulne." />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=3" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png?v=3" />
+  <!-- Safari demande /apple-touch-icon.png à la racine sans lire ce HTML :
+       le fichier ne peut pas déménager. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3" />
+  <meta name="theme-color" content="#040817" />
+
+  <!-- Polices servies par le site (voir assets/fonts.css). Le crossorigin
+       n'est pas décoratif : sans lui le préchargement est refait. -->
+  <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="stylesheet" href="/assets/site.css?v=15" />
+</head>
+
+<body>
+  <div class="halo vif" aria-hidden="true"></div>
+  <div class="halo clair" aria-hidden="true"></div>
+  <div class="halo blanc" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="entete">
+    <a class="marque" href="/"><img src="/assets/profil.jpg?v=3" alt="" width="32" height="32" />matteoth</a>
+    <nav class="barre" aria-label="Navigation">
+      <a href="/">Accueil</a>
+      <a href="/mrr">MRR</a>
+      <a href="/aulne">Aulne</a>
+      <a href="/accompagnement" aria-current="page">Accompagnement</a>
+    </nav>
+  </header>
+
+  <main class="contenu">
+    <header class="ouverture">
+      <h1 class="titre">Accompa&shy;gnement</h1>
+      <p class="accroche">Trois façons d'avancer avec moi.</p>
+    </header>
+
+    <!-- LES TROIS ACCOMPAGNEMENTS, nommés par Matteo. Leur contenu se
+         configure avec lui : chaque carte dit « Les détails arrivent »
+         plutôt que d'inventer un prix, une durée ou un nombre d'appels.
+         « 1.1 » est écrit tel qu'il l'a donné. Aulne prend le sable de sa
+         charte, comme sur l'accueil. -->
+    <section class="accomps" aria-label="Les accompagnements">
+      <article class="accomp ">
+        <span class="accomp-tag">Accompagnement</span>
+        <h2>MRR</h2>
+        <p class="accomp-bientot">Les détails arrivent.</p>
+      </article>
+      <article class="accomp ">
+        <span class="accomp-tag">Accompagnement</span>
+        <h2>1.1</h2>
+        <p class="accomp-bientot">Les détails arrivent.</p>
+      </article>
+      <article class="accomp aulne">
+        <span class="accomp-tag">Accompagnement</span>
+        <h2>Aulne</h2>
+        <p class="accomp-bientot">Les détails arrivent.</p>
+      </article>
+    </section>
+
+    <p class="fin">matteoth.com</p>
+  </main>
+</body>
+</html>
