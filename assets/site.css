@@ -277,7 +277,7 @@ body {
 }
 .aulne-section {
   position: relative; z-index: 1; overflow: hidden; margin-top: clamp(72px, 10vh, 112px);
-  padding: clamp(64px, 10vh, 104px) 20px;
+  padding: clamp(64px, 10vh, 104px) 20px clamp(32px, 5vh, 48px);
   color: #f4eee3; font-family: "Figtree", "Helvetica Neue", Arial, sans-serif; font-weight: 700;
   /* Le fond n'est jamais uni ; les deux halos sont dans le même dégradé. */
   background:
@@ -285,6 +285,7 @@ body {
     radial-gradient(45% 55% at 90% 95%, rgba(201, 182, 148, 0.22), transparent 70%),
     linear-gradient(160deg, #111c30 0%, #1c2d4a 55%, #2c4468 100%);
 }
+.aulne-pied { margin-top: clamp(64px, 10vh, 96px); text-align: center; font-size: 12px; letter-spacing: 0.02em; color: rgba(244, 238, 227, 0.5); }
 .aulne-int { max-width: 860px; margin: 0 auto; text-align: center; }
 .aulne-surtitre { display: block; font-size: 12px; letter-spacing: 0.02em; text-transform: uppercase; color: #c9b694; }
 /* Le logo de la charte, jamais recomposé : seulement coloré en crème. */
