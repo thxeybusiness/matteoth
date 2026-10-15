@@ -6,7 +6,7 @@ les fichiers du dépôt sont ce que le navigateur reçoit. Gamme bleu et noir
 reprise de simonbsns.com.
 
 ```
-index.html          l'accueil : la photo et « Le site arrive. », puis « Le
+index.html          l'accueil : la photo et « Mes business » (MRR, Aulne), puis « Le
                     business » — le MRR expliqué et illustré
 mrr/index.html      LE MRR : les trois formations, CFS, JDS et CLM
 aulne/index.html    AULNE : l'offre d'accompagnement en branding, reprise
@@ -30,8 +30,8 @@ vercel.json         URL propres + en-têtes de sécurité et de cache
 
 Trois pages, reliées par la même barre : **Accueil · MRR · Aulne**.
 
-- **Accueil** reste volontairement vide (consigne du propriétaire) : la photo
-  et une ligne.
+- **Accueil** : la photo, « Mes business » et une carte par business — MRR
+  et Aulne —, puis « Le business », le MRR en trois étapes.
 - **MRR** : trois formations, telles que Matteo les a données.
 
   | Formation | Pour qui | En une fois | En deux fois |

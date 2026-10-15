@@ -6,13 +6,13 @@
        qui en ont besoin pour la lire. -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-  <title>Matteo — Le site arrive</title>
-  <meta name="description" content="Le MRR : tu achètes un produit numérique une seule fois, avec le droit de le revendre autant de fois que tu veux." />
+  <title>Matteo — Mes business</title>
+  <meta name="description" content="Mes business : le MRR, des formations pour vendre des produits numériques, et Aulne, le branding et les sites." />
   <link rel="canonical" href="https://matteoth.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://matteoth.com/" />
-  <meta property="og:title" content="Matteo — Le site arrive" />
-  <meta property="og:description" content="Le site arrive." />
+  <meta property="og:title" content="Matteo — Mes business" />
+  <meta property="og:description" content="Mes business : le MRR et Aulne." />
   <meta property="og:locale" content="fr_FR" />
 
   <!-- Tous dérivés d'une seule photo par scripts/marque.py. -->
@@ -28,7 +28,7 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=9" />
+  <link rel="stylesheet" href="/assets/site.css?v=10" />
 </head>
 
 <body>
@@ -58,8 +58,23 @@
 
     <main>
       <img src="/assets/profil.jpg?v=3" alt="Matteo" class="profil" width="104" height="104" />
-      <h1 class="titre">Le site<br />arrive<span class="point">.</span></h1>
-      <a class="vers-bas" href="#business">Le business <span aria-hidden="true">&darr;</span></a>
+      <h1 class="titre">Mes<br />business<span class="point">.</span></h1>
+
+      <!-- Les deux business, une carte chacun : la carte ENTIÈRE est le lien,
+           c'est sa seule destination. La description tient en une ligne —
+           elle dit le métier, la page dit le reste. -->
+      <nav class="mes-business" aria-label="Mes business">
+        <a class="carte-business" href="/mrr">
+          <span class="nom">MRR</span>
+          <span class="quoi">Des formations pour vendre des produits numériques.</span>
+          <span class="aller" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="carte-business aulne" href="/aulne">
+          <span class="nom">Aulne</span>
+          <span class="quoi">Branding, identité visuelle et sites.</span>
+          <span class="aller" aria-hidden="true">&rarr;</span>
+        </a>
+      </nav>
     </main>
   </div>
 
