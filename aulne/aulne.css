@@ -30,9 +30,14 @@
   --creme: #F4EEE3;
 }
 
-/* Le fond du DOCUMENT : c'est lui que Safari montre quand on tire la page
-   au-delà de son bord. La nuit du haut du dégradé, pour le prolonger. */
-html { background-color: #111C30; }
+/* Le débord de page : la couleur du haut au-dessus, celle du bas en
+   dessous, mesurées sur le rendu. Voir le même bloc dans assets/site.css. */
+:root { --bord-haut: #192842; --bord-bas: #304463; }
+html { background-color: var(--bord-haut); }
+body::before {
+  content: ""; position: fixed; inset: -50vh 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(to bottom, var(--bord-haut) 50%, var(--bord-bas) 50%);
+}
 
 /* Jamais de fond uni : la nuit monte vers le marine puis l'indigo. */
 body {

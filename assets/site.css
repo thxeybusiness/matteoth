@@ -23,12 +23,22 @@
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 
-/* Le fond du DOCUMENT, et pas seulement celui du body : c'est lui que
-   Safari montre quand on tire la page au-delà de son bord (le geste
-   « actualiser »). Sans couleur ici, le dégradé du body se répétait et
-   laissait paraître une bande claire au-dessus de l'en-tête. Le bleu nuit
-   du haut de la page, pour que le débord le prolonge. */
-html { -webkit-text-size-adjust: 100%; background-color: #040817; }
+/* LE DÉBORD DE PAGE — ce que Safari montre quand on tire la page au-delà
+   de son bord (geste « actualiser » en haut, rebond en bas). Il doit
+   prolonger le bord qu'on tire : la couleur du haut au-dessus, celle du bas
+   en dessous, sans démarcation (signalé par Matteo, capture à l'appui).
+   Une seule couleur de fond de document ne peut pas faire les deux : une
+   couche FIXE derrière la page porte donc les deux moitiés. Pendant le
+   rebond, la page glisse et la couche reste : le haut de l'écran découvre
+   sa moitié haute, le bas sa moitié basse. Elle est sous le fond du body,
+   donc invisible le reste du temps. Les couleurs sont MESURÉES sur le rendu
+   de chaque page (bord haut, bord bas), pas devinées. */
+:root { --bord-haut: #060b20; --bord-bas: #08102f; }
+html { -webkit-text-size-adjust: 100%; background-color: var(--bord-haut); }
+body::before {
+  content: ""; position: fixed; inset: -50vh 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(to bottom, var(--bord-haut) 50%, var(--bord-bas) 50%);
+}
 /* Jamais de fond uni : le noir descend vers le bleu nuit. */
 body {
   min-height: 100svh;
