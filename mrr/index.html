@@ -28,7 +28,8 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=23" />
+  <link rel="stylesheet" href="/assets/site.css?v=24" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
@@ -73,7 +74,7 @@
          offres. 2 × 64 € fait 128 €, un euro de plus que JDS en une fois :
          confirmé par Matteo, et écrit en clair sur le lien. -->
     <section class="formations" aria-label="Les formations">
-      <article class="formation"><div class="formation-corps">
+      <article class="formation" id="cfs"><div class="formation-corps">
         <span class="budget">Petit budget</span>
         <h2>CFS</h2>
         <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent commencer un business en ligne avec un petit budget.</p>
@@ -85,7 +86,7 @@
         <div class="deux-fois"><span>Paiement en une fois</span></div>
         <a class="acheter" href="https://mtodigit.store/shop/3e719a63-a5ea-4c37-821d-4d779d9768d3" target="_blank" rel="noopener">Acheter CFS <span aria-hidden="true">&rarr;</span></a>
       </div></article>
-      <article class="formation"><div class="formation-corps">
+      <article class="formation" id="jds"><div class="formation-corps">
         <span class="budget">Budget moyen</span>
         <h2>JDS</h2>
         <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent développer un business en ligne avec un budget moyen.</p>
@@ -94,7 +95,7 @@
         <div class="deux-fois"><a aria-label="Payer JDS en deux fois : 2 × 64 €, 128 € au total" href="https://mtodigit.store/shop/8eb7f9db-8e79-43b5-b6c3-3114b1f535b3" target="_blank" rel="noopener">ou 2&nbsp;×&nbsp;64&nbsp;€ (128&nbsp;€)</a></div>
         <a class="acheter" href="https://mtodigit.store/shop/c63ba0fb-502d-476b-ab03-996b086ca634" target="_blank" rel="noopener">Acheter JDS <span aria-hidden="true">&rarr;</span></a>
       </div></article>
-      <article class="formation"><div class="formation-corps">
+      <article class="formation" id="clm"><div class="formation-corps">
         <span class="budget">Budget plus haut</span>
         <h2>CLM</h2>
         <p class="quoi">Modules vidéo explicatifs, pour les personnes qui veulent développer leur business en ligne avec un budget plus haut, pour scale.</p>
@@ -104,8 +105,141 @@
         <a class="acheter" href="https://mtodigit.store/shop/95ce8405-564e-4250-8bbf-a395b533d876" target="_blank" rel="noopener">Acheter CLM <span aria-hidden="true">&rarr;</span></a>
       </div></article>
     </section>
+  </main>
 
+  <!-- QUESTIONNAIRE — repris de simonbsns.com, à la demande de Matteo.
+       Le MÊME bloc vit sur l'accueil et sur /mrr : le site n'a pas de
+       build, donc le recopier est le prix de l'avoir aux deux endroits. Le
+       script, lui, est commun (assets/questionnaire.js) : la règle de
+       conseil n'existe qu'une fois.
+
+       UN SEUL ÉCRAN, ET PAS D'ÉTAPES À CLIQUER. Sans script, il reste un
+       formulaire entier : toutes les questions sont visibles et le repli
+       sous le bouton dit où envoyer les réponses. -->
+  <section class="formulaire" id="questionnaire" aria-labelledby="titre-questionnaire">
+    <span class="surtitre">Avant qu'on se parle</span>
+    <h2 class="titre" id="titre-questionnaire">Dis-moi où tu en es</h2>
+    <p class="accroche">Huit questions, deux minutes. À la fin, je te dis quelle formation prendre.</p>
+
+    <form class="questionnaire" id="qualif" novalidate>
+      <!-- Un formulaire qui se dévoile n'annonce plus sa longueur : le
+           compteur rend ce que le dévoilement enlève. -->
+      <p class="progres avec-js-bloc" id="progres" aria-live="polite">Question 1 sur 8</p>
+      <div class="champ ouverte" data-etape="1">
+        <label class="intitule" for="q-prenom">Ton prénom</label>
+        <input class="saisie" type="text" id="q-prenom" name="prenom" autocomplete="given-name" placeholder="Ton prénom" />
+      </div>
+
+      <!-- LES TRANCHES SONT LA RÈGLE, donnée par Matteo : chacune dit sur
+           elle-même la formation qu'elle conseille (data-offre) et les
+           façons de la payer (data-modes). Pour changer la règle, on change
+           ces attributs ; le script ne décide rien. Aucun paiement n'est
+           proposé au-dessus du haut de sa tranche : 64 – 127 € ne voit que
+           JDS en deux fois, puisque 127 € en une fois est la borne haute. -->
+      <fieldset class="champ" data-etape="2">
+        <legend>
+          Ce que tu peux investir pour démarrer
+          <span class="aide">Je ne te conseillerai rien au-dessus.</span>
+        </legend>
+        <div class="pastilles">
+          <input type="radio" name="budget" id="b0" data-offre="cfs" data-modes="une" value="Moins de 64 €" /><label for="b0">Moins de 64 €</label>
+          <input type="radio" name="budget" id="b1" data-offre="jds" data-modes="deux" value="64 à 127 €" /><label for="b1">64 – 127 €</label>
+          <input type="radio" name="budget" id="b2" data-offre="jds" data-modes="une deux" value="127 à 150 €" /><label for="b2">127 – 150 €</label>
+          <input type="radio" name="budget" id="b3" data-offre="clm" data-modes="deux" value="150 à 300 €" /><label for="b3">150 – 300 €</label>
+          <input type="radio" name="budget" id="b4" data-offre="clm" data-modes="une deux" value="300 € et plus" /><label for="b4">300 € et plus</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="champ" data-etape="3">
+        <legend>Ta situation aujourd'hui</legend>
+        <div class="pastilles">
+          <input type="radio" name="situation" id="s1" value="Étudiant" /><label for="s1">Étudiant</label>
+          <input type="radio" name="situation" id="s2" value="Salarié" /><label for="s2">Salarié</label>
+          <input type="radio" name="situation" id="s3" value="Entrepreneur" /><label for="s3">Entrepreneur / indépendant</label>
+          <input type="radio" name="situation" id="s4" value="Sans emploi" /><label for="s4">Sans emploi</label>
+          <input type="radio" name="situation" id="s5" value="Autre" /><label for="s5">Autre</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="champ" data-etape="4">
+        <legend>Ce dont tu as le plus besoin</legend>
+        <div class="pastilles">
+          <input type="radio" name="besoin" id="n1" value="Apprendre les bases" /><label for="n1">Apprendre les bases</label>
+          <input type="radio" name="besoin" id="n2" value="Être accompagné" /><label for="n2">Être accompagné</label>
+          <input type="radio" name="besoin" id="n3" value="Optimiser ce que je fais déjà" /><label for="n3">Optimiser ce que je fais déjà</label>
+        </div>
+      </fieldset>
+
+      <div class="champ" data-etape="5">
+        <label class="intitule" for="q-age">Ton âge</label>
+        <!-- inputmode numeric fait monter le pavé numérique au téléphone. -->
+        <input class="saisie" type="number" inputmode="numeric" min="13" max="99" id="q-age" name="age" placeholder="Ton âge" />
+      </div>
+
+      <fieldset class="champ" data-etape="6">
+        <legend>Tes revenus actuels <span class="aide">Facultatif</span></legend>
+        <div class="pastilles">
+          <input type="radio" name="revenus" id="r1" value="Aucun" /><label for="r1">Aucun</label>
+          <input type="radio" name="revenus" id="r2" value="Moins de 500 €/mois" /><label for="r2">&lt; 500 €</label>
+          <input type="radio" name="revenus" id="r3" value="500 à 1 500 €/mois" /><label for="r3">500 – 1 500 €</label>
+          <input type="radio" name="revenus" id="r4" value="1 500 à 3 000 €/mois" /><label for="r4">1 500 – 3 000 €</label>
+          <input type="radio" name="revenus" id="r5" value="Plus de 3 000 €/mois" /><label for="r5">&gt; 3 000 €</label>
+          <input type="radio" name="revenus" id="r6" value="Préfère ne pas dire" /><label for="r6">Je préfère ne pas dire</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="champ" data-etape="7">
+        <legend>Tu as déjà essayé quelque chose&nbsp;?</legend>
+        <div class="pastilles">
+          <input type="radio" name="deja" id="d1" value="Jamais rien essayé" /><label for="d1">Jamais</label>
+          <input type="radio" name="deja" id="d2" value="Essayé, sans résultat" /><label for="d2">Oui, sans résultat</label>
+          <input type="radio" name="deja" id="d3" value="Déjà des résultats" /><label for="d3">Oui, j'ai déjà des résultats</label>
+        </div>
+      </fieldset>
+
+      <div class="champ" data-etape="8">
+        <label class="intitule" for="q-objectif">
+          Ton objectif, et pourquoi maintenant
+          <span class="aide">Trois lignes suffisent.</span>
+        </label>
+        <textarea class="saisie" id="q-objectif" name="objectif" rows="4"
+          placeholder="Ce que tu veux atteindre, et ce qui fait que tu t'y mets maintenant."></textarea>
+      </div>
+
+      <!-- LA RÉPONSE, affichée avec la dernière question sans attendre
+           l'envoi : la personne vient de dire ce qu'elle cherche, elle mérite
+           une réponse tout de suite. Sans script, elle n'existe pas. -->
+      <div class="orientation" id="orientation" aria-live="polite" hidden>
+        <span class="orientation-sur">Ce que je te conseille</span>
+        <p class="orientation-titre" id="o-titre"></p>
+        <p class="orientation-prix" id="o-prix"></p>
+        <p class="orientation-raison" id="o-raison"></p>
+        <div class="orientation-liens" id="o-liens"></div>
+        <p class="orientation-ensuite">Et envoie-moi tes réponses, qu'on en parle.</p>
+      </div>
+
+      <div class="envoi" data-etape="9">
+        <button type="submit" class="acheter avec-js">Envoyer sur Instagram <span aria-hidden="true">&rarr;</span></button>
+        <button type="button" class="cta-sobre avec-js" id="copier">Copier seulement</button>
+        <p class="sans-js">
+          Réponds aux questions ci-dessus, puis envoie-les-moi en message sur
+          <a href="https://www.instagram.com/oth.matteo/" target="_blank" rel="noopener">Instagram, @oth.matteo</a>.
+        </p>
+      </div>
+      <p class="etat" id="etat" role="status" aria-live="polite"></p>
+      <!-- Instagram s'ouvre par une VRAIE ancre cliquée pendant le geste :
+           window.location part dans le vide dans les navigateurs des
+           applications sociales, d'où arrivent ces visiteurs, et Safari
+           bloque un window.open lancé après une promesse. Instagram
+           n'accepte pas de message pré-rempli : les réponses passent par le
+           presse-papier. -->
+      <a id="envoi-insta" href="https://www.instagram.com/oth.matteo/" target="_blank" rel="noopener" hidden aria-hidden="true" tabindex="-1">Ouvrir Instagram</a>
+    </form>
+  </section>
+
+  <main class="contenu">
     <p class="fin">matteoth.com</p>
   </main>
+  <script src="/assets/questionnaire.js?v=1" defer></script>
 </body>
 </html>

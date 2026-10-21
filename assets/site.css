@@ -457,3 +457,125 @@ body {
   .halo, .titre, .titre .point, .accroche, .profil, .formations { animation: none; }
   .acheter, .barre a { transition: none; }
 }
+
+/* ============================================================
+   QUESTIONNAIRE — accueil et /mrr, repris de simonbsns.com
+   ============================================================ */
+.formulaire { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: clamp(64px, 9vh, 96px) 20px 0; text-align: center; scroll-margin-top: 24px; }
+.formulaire .titre { margin-top: 12px; font-size: clamp(1.7rem, 4.4vw, 2.8rem); }
+.questionnaire {
+  margin-top: 32px; text-align: left; display: flex; flex-direction: column; gap: 34px;
+  padding: 36px 28px; border-radius: 24px;
+  background: linear-gradient(180deg, rgba(13, 30, 77, 0.5), rgba(5, 10, 28, 0.5));
+  border: 1px solid rgba(115, 144, 231, 0.18);
+}
+.champ { display: flex; flex-direction: column; gap: 14px; }
+fieldset.champ { border: 0; min-width: 0; }
+.champ > legend, .champ > .intitule {
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 1rem; letter-spacing: -0.01em;
+  color: var(--ink); padding: 0;
+}
+/* Un legend n'est pas un enfant flex : le gap ne s'applique jamais entre
+   lui et la première réponse, son écart s'écrit donc à la main. */
+.champ > legend { margin-bottom: 14px; }
+.champ .aide { display: block; margin-top: 5px; font-family: "Satoshi", sans-serif; font-weight: 400; font-size: 13px; color: var(--ink-faint); }
+
+.saisie {
+  width: 100%; min-height: 48px; padding: 12px 16px; border-radius: 14px;
+  background: rgba(5, 10, 28, 0.6); border: 1px solid rgba(115, 144, 231, 0.22);
+  color: var(--ink); font: inherit; font-size: 1rem;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.saisie::placeholder { color: var(--ink-faint); }
+.saisie:focus { outline: none; border-color: var(--bleu-clair); box-shadow: 0 0 0 3px rgba(34, 76, 201, 0.3); }
+textarea.saisie { resize: vertical; min-height: 96px; line-height: 1.55; }
+
+/* Le masquage est conditionné à la classe js, posée par la page : sans
+   script, toutes les questions restent visibles et le formulaire marche. */
+.js #qualif [data-etape]:not(.ouverte) { display: none; }
+#qualif [data-etape].ouverte { animation: monte 0.45s var(--ease) both; }
+
+.progres {
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--bleu-clair); margin-bottom: -12px;
+}
+.avec-js-bloc { display: none; }
+.js .avec-js-bloc { display: block; }
+
+.pastilles { display: flex; flex-wrap: wrap; gap: 10px; }
+/* Le bouton radio reste un VRAI bouton radio, masqué à l'œil seulement :
+   clavier, groupage par name et lecture d'écran viennent avec. */
+.pastilles input {
+  position: absolute; width: 1px; height: 1px; opacity: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+.pastilles label {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 10px 17px;
+  border-radius: 999px; cursor: pointer; font-size: 0.94rem; color: var(--ink-soft);
+  background: rgba(5, 10, 28, 0.5); border: 1px solid rgba(115, 144, 231, 0.2);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.pastilles label:hover { color: var(--ink); border-color: rgba(115, 144, 231, 0.45); }
+.pastilles input:checked + label {
+  color: #fff; background: linear-gradient(180deg, var(--bleu-vif), var(--bleu) 60%, var(--bleu-nuit));
+  border-color: rgba(176, 193, 242, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 20px -10px rgba(34, 76, 201, 0.8);
+}
+/* Masquer le radio masque son contour de focus : on le rend au label. */
+.pastilles input:focus-visible + label { outline: 2px solid var(--bleu-clair); outline-offset: 2px; }
+
+.envoi { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.envoi .acheter, .orientation-liens .acheter { margin-top: 0; padding: 14px 24px; cursor: pointer; font: inherit; font-family: "General Sans", sans-serif; font-weight: 700; font-size: 1rem; }
+.cta-sobre {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 54px; padding: 14px 24px; border-radius: 999px; cursor: pointer; text-decoration: none;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.96rem;
+  color: var(--ink); background: rgba(5, 10, 28, 0.5); border: 1px solid rgba(115, 144, 231, 0.3);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.cta-sobre:hover { border-color: var(--bleu-clair); background: rgba(22, 49, 131, 0.5); }
+.sans-js { font-size: 0.92rem; color: var(--ink-soft); }
+.sans-js a { color: var(--bleu-pale); }
+.js .sans-js { display: none; }
+.avec-js { display: none; }
+.js .avec-js { display: inline-flex; }
+.etat { margin-top: -18px; font-size: 0.9rem; color: var(--bleu-clair); min-height: 1.3em; }
+
+/* display: flex écraserait l'attribut hidden : la règle qui suit le rétablit. */
+.orientation {
+  display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+  padding: 24px 22px; border-radius: 20px;
+  background: linear-gradient(145deg, rgba(22, 49, 131, 0.42), rgba(13, 30, 77, 0.18));
+  border: 1px solid rgba(115, 144, 231, 0.35);
+}
+.orientation[hidden] { display: none; }
+.orientation-sur { font-family: "General Sans", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bleu-clair); }
+.orientation-titre { font-family: "General Sans", sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: -0.04em; line-height: 1.1; color: var(--ink); }
+.orientation-prix { margin-top: -4px; font-family: "General Sans", sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--bleu-pale); }
+.orientation-prix:empty { display: none; }
+.orientation-raison { color: var(--ink-soft); font-size: 0.97rem; }
+/* align-self: stretch, sans quoi la rangée se réduit à la largeur de son
+   bouton et le « 100 % » du téléphone ne vaut plus rien. */
+.orientation-liens { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; align-self: stretch; }
+/* Le détail est un LIEN, pas un troisième bouton : il ne paie rien. */
+.orientation-detail {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--bleu-clair); font-size: 0.92rem; text-decoration: underline; text-underline-offset: 3px;
+}
+.orientation-detail:hover { color: var(--bleu-pale); }
+.orientation-ensuite { margin-top: 2px; color: var(--ink-soft); font-size: 0.9rem; }
+
+/* La formation vers laquelle le questionnaire envoie se signale à l'arrivée. */
+.formation { scroll-margin-top: 24px; }
+.formation:target { box-shadow: 0 0 0 2px var(--bleu-clair), 0 18px 50px -20px rgba(34, 76, 201, 0.7); }
+
+@media (max-width: 520px) {
+  .questionnaire { padding: 28px 18px; gap: 30px; }
+  .pastilles { gap: 8px; }
+  .pastilles label { padding: 10px 14px; font-size: 0.9rem; }
+  .envoi { flex-direction: column; align-items: stretch; }
+  .envoi .acheter, .envoi .cta-sobre, .orientation-liens .acheter, .orientation-liens .cta-sobre { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #qualif [data-etape].ouverte { animation: none; }
+}
