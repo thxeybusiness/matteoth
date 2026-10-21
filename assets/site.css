@@ -582,3 +582,15 @@ textarea.saisie { resize: vertical; min-height: 96px; line-height: 1.55; }
 /* Le rappel du paiement en deux fois, en petit dans la pastille : la
    tranche se lit au prix entier, la mensualité n'est qu'une précision. */
 .pastilles .x2 { margin-left: 6px; font-size: 0.78em; opacity: 0.7; }
+/* Plusieurs formations conseillées : chacune sa carte, séparées d'un filet. */
+.orientation-offres { display: flex; flex-direction: column; align-self: stretch; }
+.o-offre { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; padding: 16px 0; }
+.o-offre:first-child { padding-top: 6px; }
+.o-offre + .o-offre { border-top: 1px solid rgba(115, 144, 231, 0.2); }
+.o-offre .orientation-prix { margin-top: -2px; }
+.orientation-offert {
+  padding: 5px 12px; border-radius: 999px;
+  font-family: "General Sans", sans-serif; font-weight: 600; font-size: 0.86rem;
+  color: #fff; background: linear-gradient(180deg, var(--bleu-vif), var(--bleu));
+}
+.o-offre .orientation-liens { margin-top: 4px; }

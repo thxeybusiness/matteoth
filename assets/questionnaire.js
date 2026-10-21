@@ -20,6 +20,8 @@
       une: { prix: "35 €", achat: "https://mtodigit.store/shop/3e719a63-a5ea-4c37-821d-4d779d9768d3" } },
     jds: { nom: "JDS", page: "/mrr#jds",
       raison: "Des modules vidéo pour développer un business en ligne avec un budget moyen. Accompagnement offert.",
+      // Consigne de Matteo : la JDS conseillée s'accompagne de la CFS offerte.
+      offert: "+ CFS offerte",
       une:  { prix: "127 €", achat: "https://mtodigit.store/shop/c63ba0fb-502d-476b-ab03-996b086ca634" },
       deux: { prix: "2 × 64 €", achat: "https://mtodigit.store/shop/8eb7f9db-8e79-43b5-b6c3-3114b1f535b3" } },
     clm: { nom: "CLM", page: "/mrr#clm",
@@ -72,48 +74,63 @@
   }
 
   // ---- ORIENTATION ----
-  // La règle est dans les tranches de budget (data-offre, data-modes).
+  // La règle est dans les tranches de budget : data-offre liste les
+  // formations conseillées, dans l'ordre où on les montre.
   var orientation = document.getElementById("orientation");
 
   function conseil() {
     var coche = form.querySelector('[name="budget"]:checked');
-    if (!coche) return null;
-    return {
-      cle: coche.getAttribute("data-offre"),
-      modes: (coche.getAttribute("data-modes") || "").split(" ").filter(Boolean)
-    };
+    if (!coche) return [];
+    return (coche.getAttribute("data-offre") || "").split(" ")
+      .filter(function (k) { return OFFRES[k]; });
+  }
+
+  function el(balise, classe, texte) {
+    var e = document.createElement(balise);
+    if (classe) e.className = classe;
+    if (texte) e.textContent = texte;
+    return e;
   }
 
   function lien(href, texte, classe, dehors) {
-    var a = document.createElement("a");
-    a.href = href; a.className = classe; a.textContent = texte;
+    var a = el("a", classe, texte);
+    a.href = href;
     if (dehors) { a.target = "_blank"; a.rel = "noopener"; }
     return a;
+  }
+
+  // Une carte par formation conseillée, avec TOUTES ses façons de payer :
+  // les bornes des tranches sont les prix entiers, donc chaque prix proposé
+  // tient dans le budget coché.
+  function carte(cle, premiere) {
+    var o = OFFRES[cle], c = el("div", "o-offre");
+    var modes = ["une", "deux"].filter(function (m) { return o[m]; });
+    c.appendChild(el("p", "orientation-titre", o.nom));
+    c.appendChild(el("p", "orientation-prix",
+      modes.map(function (m) { return insecable(o[m].prix); }).join(" ou ")));
+    if (o.offert) c.appendChild(el("p", "orientation-offert", o.offert));
+    c.appendChild(el("p", "orientation-raison", o.raison));
+    var liens = el("div", "orientation-liens");
+    modes.forEach(function (m, i) {
+      liens.appendChild(lien(o[m].achat, MODES[m] + " · " + insecable(o[m].prix),
+        premiere && i === 0 ? "acheter" : "cta-sobre", true));
+    });
+    liens.appendChild(lien(o.page, "Voir le détail", "orientation-detail"));
+    c.appendChild(liens);
+    return c;
   }
 
   // Même condition que les boutons d'envoi : aucun des deux sans l'autre.
   function orienter() {
     var fin = form.querySelector(".envoi[data-etape]");
     if (!fin || !fin.classList.contains("ouverte")) return;
-    var c = conseil(), o = c && OFFRES[c.cle];
-    var liens = document.getElementById("o-liens");
-    var titre = document.getElementById("o-titre"), prix = document.getElementById("o-prix");
-    var raison = document.getElementById("o-raison");
-    liens.textContent = "";
-    if (o) {
-      titre.textContent = o.nom;
-      prix.textContent = c.modes.map(function (m) { return insecable(o[m].prix); }).join(" ou ");
-      raison.textContent = o.raison;
-      // Un bouton par façon de payer que la tranche autorise, AUCUNE autre.
-      c.modes.forEach(function (m, i) {
-        liens.appendChild(lien(o[m].achat, MODES[m] + " · " + insecable(o[m].prix),
-          i === 0 ? "acheter" : "cta-sobre", true));
-      });
-      liens.appendChild(lien(o.page, "Voir le détail de la formation", "orientation-detail"));
+    var cles = conseil(), boite = document.getElementById("o-offres");
+    boite.textContent = "";
+    if (cles.length) {
+      cles.forEach(function (k, i) { boite.appendChild(carte(k, i === 0)); });
     } else {
-      titre.textContent = "Il me manque une réponse";
-      prix.textContent = "";
-      raison.textContent = "Choisis ton budget plus haut : je te dis quelle formation prendre.";
+      boite.appendChild(el("p", "orientation-titre", "Il me manque une réponse"));
+      boite.appendChild(el("p", "orientation-raison", "Choisis ton budget plus haut : je te dis quelles formations prendre."));
     }
     orientation.hidden = false;
   }
@@ -140,9 +157,9 @@
     }).filter(Boolean);
     // Matteo lit ce que le site a conseillé : sans cette ligne, il répondrait
     // sans savoir vers quelle formation la personne vient d'être envoyée.
-    var c = conseil();
-    lignes.push("Conseil du site : " + (c && OFFRES[c.cle]
-      ? OFFRES[c.cle].nom + " (" + c.modes.map(function (m) { return MODES[m].toLowerCase(); }).join(" ou ") + ")"
+    var cles = conseil();
+    lignes.push("Conseil du site : " + (cles.length
+      ? cles.map(function (k) { return OFFRES[k].nom; }).join(" et ")
       : "aucun"));
     return lignes;
   }
