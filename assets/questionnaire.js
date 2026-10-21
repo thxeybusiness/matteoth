@@ -9,7 +9,7 @@
   if (!form) return;
   var etat = document.getElementById("etat");
   var copier = document.getElementById("copier");
-  var INSTA = "@oth.matteo";
+  var INSTA = "@oth.matteo_";
 
   // CE QUE LE QUESTIONNAIRE PEUT CONSEILLER. Noms, prix et liens sont
   // RECOPIÉS de /mrr : changer un prix là-bas, c'est le changer ici aussi.
