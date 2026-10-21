@@ -579,3 +579,6 @@ textarea.saisie { resize: vertical; min-height: 96px; line-height: 1.55; }
 @media (prefers-reduced-motion: reduce) {
   #qualif [data-etape].ouverte { animation: none; }
 }
+/* Le rappel du paiement en deux fois, en petit dans la pastille : la
+   tranche se lit au prix entier, la mensualité n'est qu'une précision. */
+.pastilles .x2 { margin-left: 6px; font-size: 0.78em; opacity: 0.7; }

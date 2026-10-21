@@ -28,7 +28,7 @@
   <link rel="preload" href="/assets/fonts/general-sans-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/fonts.css" />
-  <link rel="stylesheet" href="/assets/site.css?v=24" />
+  <link rel="stylesheet" href="/assets/site.css?v=25" />
   <script>document.documentElement.classList.add("js");</script>
 </head>
 
@@ -133,20 +133,20 @@
       <!-- LES TRANCHES SONT LA RÈGLE, donnée par Matteo : chacune dit sur
            elle-même la formation qu'elle conseille (data-offre) et les
            façons de la payer (data-modes). Pour changer la règle, on change
-           ces attributs ; le script ne décide rien. Aucun paiement n'est
-           proposé au-dessus du haut de sa tranche : 64 – 127 € ne voit que
-           JDS en deux fois, puisque 127 € en une fois est la borne haute. -->
+           ces attributs ; le script ne décide rien. Les bornes sont les
+           PRIX ENTIERS (35, 127, 300 €) et non ceux des paiements en deux
+           fois : 64 € et 150 € ne sont que des mensualités, consigne de
+           Matteo. Les deux façons de payer restent proposées dès que le
+           prix entier tient dans la tranche. -->
       <fieldset class="champ" data-etape="2">
         <legend>
           Ce que tu peux investir pour démarrer
           <span class="aide">Je ne te conseillerai rien au-dessus.</span>
         </legend>
         <div class="pastilles">
-          <input type="radio" name="budget" id="b0" data-offre="cfs" data-modes="une" value="Moins de 64 €" /><label for="b0">Moins de 64 €</label>
-          <input type="radio" name="budget" id="b1" data-offre="jds" data-modes="deux" value="64 à 127 €" /><label for="b1">64 – 127 €</label>
-          <input type="radio" name="budget" id="b2" data-offre="jds" data-modes="une deux" value="127 à 150 €" /><label for="b2">127 – 150 €</label>
-          <input type="radio" name="budget" id="b3" data-offre="clm" data-modes="deux" value="150 à 300 €" /><label for="b3">150 – 300 €</label>
-          <input type="radio" name="budget" id="b4" data-offre="clm" data-modes="une deux" value="300 € et plus" /><label for="b4">300 € et plus</label>
+          <input type="radio" name="budget" id="b0" data-offre="cfs" data-modes="une" value="35 à 127 €" /><label for="b0">35 – 127 €</label>
+          <input type="radio" name="budget" id="b1" data-offre="jds" data-modes="une deux" value="127 à 300 €" /><label for="b1">127 – 300 €<span class="x2">(ou en 2 fois)</span></label>
+          <input type="radio" name="budget" id="b2" data-offre="clm" data-modes="une deux" value="300 € et plus" /><label for="b2">300 € et plus<span class="x2">(ou en 2 fois)</span></label>
         </div>
       </fieldset>
 
